@@ -1,0 +1,87 @@
+---
+title: BZ Publish Headeless CMS
+description: 'website untuk memudahkan klien Baezeni dalam mengelola konten.'
+category: ''
+publishedAt: '2021-11-04'
+techs: 'react,tailwindcss,mui,reactquery,redux'
+date: '2022-08-17T00:00:00Z'
+modifiedTime: '2022-08-19T12:52:00Z'
+link: 'https://admin.bzpublish.com'
+banner: 'Projects/bzpublish/Site-Structure-Baezeni-BZ-Publish_tvrmoe'
+---
+
+> ## Penjelasan Singkat
+
+Project ini di bangun untuk memfasilitasi client Baezeni untuk memngatur semua kontent di dalam website mereka.
+
+> ## Project Goals
+
+- Membangun antarmuka yang mudah digunakan untuk mengelola dan menyusun konten website, termasuk artikel berita, daftar lowongan kerja, dan jenis konten lainnya.
+
+- Melakukan implementasi desain responsif untuk memastikan bahwa CMS dan pembangun halaman bekerja dengan mulus di seluruh perangkat dan ukuran layar.
+
+- Menyertakan fitur drag-and-drop untuk pembangunan halaman yang mudah dan intuitif untuk kedua berita dan portal lowongan kerja.
+
+- Menyediakan beragam template dan widget yang dapat disesuaikan untuk berita, portal lowongan kerja, dan halaman umum untuk memastikan pengguna dapat membuat halaman yang unik dan menarik tanpa kebutuhan pengetahuan pemrograman.
+
+- Melakukan pengujian dan optimisasi untuk kinerja CMS dan pembangun halaman untuk memastikan waktu loading yang cepat.
+
+- Melakukan pemantauan dan pembaruan terus-menerus pada CMS dan pembangun halaman untuk memastikan tetap up-to-date dengan teknologi dan tren pengembangan web terbaru.
+
+- Melakukan implementasi fitur pencarian dan filter untuk portal lowongan kerja dan artikel berita untuk memudahkan pengguna menemukan informasi yang dibutuhkan.
+
+<blockquote className='with-icons'>
+  ## Technologi yang di gunakan
+  <div className='not-prose mt-2'></div>
+</blockquote>
+
+Projek ini di bangun menggunakan Create React App untuk Frontend dan Python Django untuk Backend
+
+Untuk styling kami menggunakan framework, yaitu :
+
+- **Tailwind CSS** Untuk membuat stylink yang berbeda dari yang lain, dan mudah untuk pengaturan layout.
+- **MUI** Untuk komponen UI.
+
+Beberap library yang kami gunakan:
+
+- **React Query** for data management
+- **Redux Toolkit** for State management
+- **Google Map React** for generate location
+- **React Hook Form** for form management and form validation
+- **React CKEditor 5** for Text editor
+- **React Beaautiful DND** for drag-and-drop section and content
+- **React Dropzone** for drag-and-drop file upload
+- **React Sweetalert 2** for confirmation alert
+- **React Toastify** for giving toast about success and error
+- **etc..**
+
+> ## Bagaimana BZ PUblish bekerja ?
+
+### Client & Templating setup
+
+untuk langkah pertama, setiap klien memiliki satu template website, template ini untuk mengumpulkan data dan informasi klien, juga otomatisasi akan membuat stroge di azure storage berdasarkan setiap template klien.
+Pada bagian ini admin baezeni juga melakukan setup modul subscription dan site domain.
+
+### Site Structure Setup
+
+Frontend akan membuat semua halaman berdasarkan sitemap.
+
+### Section Templating
+
+Frontend akan membuat semua section untuk setiap halaman berdasarkan desain, frontend akan menggunakan Modul BZ Publish CMS untuk mengisi konten dan mengonsumsi konten dengan API. Klien dapat menambahkan section yang tidak terbatas ke halaman yang mereka inginkan.
+
+- **Article** for save article collection
+- **Job Poster** for save Job Poster collection
+- **Media** for save media collection
+- **Text** for save Text collection
+- **Table** for generate Table and Chart data
+
+### Build website
+
+Langkah terakhir. Sebenarnya langkah ini sangat sederhana, untuk Build situs web, admin hanya perlu memilih jenis Build, ada dua pilihan Preview dan Publish, biasanya Build preview dilakukan pertama, setelah semuanya baik dan tanpa bug, dan kemudian Build selanjutnya adalah Publish.
+
+> ## Permasalahan dan Bagaimana Saya Menanganinya
+
+Ini adalah projek terbesar yang pernah saya kerjakan, dan banyak menggunakan teknologi baru pada projek ini.
+
+BZ Publish telah di siapkan untuk memenuhi berbagai kebutuhan client, banyak hal yang di buat sangat dinamis. seperti : multipe template, multipe hak akses, multipe bahasa dan masih banyak lagi. tantangan yang sangat menarik untuk saya adalah menangani multiple bahasa. dalam setiap CRUD proses saya harus memvalidasi semua form dengan berbagai bahasa, dan memastikan semua data yang dikirm sesuai dengan ketentuan Backend. selama menangani kasus ini, saya sangat banyak belajar tentang Array handling method, handling http request dan banyak hal lain yang sangat berguna untuk saya pelajari dan kuasai.

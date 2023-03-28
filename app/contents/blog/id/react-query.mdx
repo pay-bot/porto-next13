@@ -1,0 +1,163 @@
+---
+title: "React-Query playing Api be happy - create useQuery wrapper"
+publishedAt: "2022-12-31"
+description: "Hook for manage API data"
+englishOnly: "true"
+banner: "Blogs/Reac-Query_pqr1cr"
+tags: "retro"
+---
+
+## Disclaimer
+
+Before we begin creating something awesome, I should explain the meaning of the word "API." In Bahasa, "API" means fire, so I think this comparison is fitting because for beginners, handling an API can be intimidating.
+
+## Introduction
+
+React-query is a tool that helps you manage data when using the React.js library. It makes it easy to fetch data from an API and also helps with caching that data, so your web application is faster and more responsive. It also has additional features like pagination, error handling, and more, to make your React application more efficient and effective.
+
+## React Query setup
+
+To use React-query in your React application, you first need to install the library. You can do this by running the following command in your command line:
+
+```jsx
+npm install react-query
+```
+
+or
+
+```jsx
+yarn add react-query
+```
+
+### Simple useQuery
+
+In the component that you want to use React-query in, you need to import the useQuery hook:
+
+```jsx
+import { useQuery } from "@tanstack/react-query";
+```
+
+With useQuery hook, you can make a query to a API, it takes two arguments, the first one is the key of the query and the second is a function that returns a promise of the data you want to fetch.
+
+```jsx
+const { data, isSuccess } = useQuery("users", () =>
+  fetch("https://my-api.com/users").then((res) => res.json())
+);
+```
+
+And you can use the data to render in your component
+
+```jsx
+{
+  isSuccess && data.map((user) => <p>{user.name}</p>);
+}
+```
+
+### QueryClientProvider
+
+QueryClientProvider is a component in React-query that allows you to provide a client instance to your entire application. It wraps your entire application and makes the client instance available to all the useQuery hooks in your application. This allows you to configure and customize the behavior of the client globally.
+
+```jsx
+import React from "react";
+import { createRoot } from "react-dom/client";
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+import App from "./App";
+import "./index.css";
+
+const queryClient = new QueryClient();
+
+const container = document.getElementById("root");
+const root = createRoot(container);
+root.render(
+  <QueryClientProvider client={queryClient}>
+    <App />
+  </QueryClientProvider>
+);
+```
+
+It is important to note that the QueryClientProvider should be placed at the top level of your application, so that the client instance is available to all the useQuery hooks in your application.
+
+### Request helper
+
+```jsx
+import axios from "axios";
+import Cookies from "js-cookie";
+
+const client = axios.create({ baseURL: `${process.env.REACT_APP_API_URL}` });
+const token = Cookies.get("key");
+
+export default function request(options) {
+  client.defaults.headers.common.Authorization = `Token ${token}`;
+
+  const onSuccess = (response) => response;
+  const onError = (error) => error;
+  return client(options).then(onSuccess).catch(onError);
+}
+```
+
+### useQuery wrapper
+
+```jsx
+import { useQuery } from "@tanstack/react-query";
+import request from "../helper/axiosUtil";
+
+export default function useRead({
+  url,
+  validate,
+  isEnabled = true,
+  onSuccess,
+}) {
+  const fetchDetail = () => {
+    return request({ url: `/${url}` });
+  };
+
+  return useQuery([validate], fetchDetail, {
+    onSuccess,
+    enabled: isEnabled,
+    refetchOnWindowFocus: false,
+  });
+}
+```
+
+Use in the component
+
+```jsx
+const { data } = useRead({
+  url: `users`,
+  validate: "users",
+});
+```
+
+And you can use the data to render in your component
+
+```jsx
+{
+  isSuccess && data.map((user) => <p>{user.name}</p>);
+}
+```
+
+### With useState Hook
+
+you can also pass the data to the useState hook with this code
+
+```jsx
+import React, { useState } from "react";
+import useRead from "../../../hooks/useRead";
+
+export default function User() {
+  const [dataUser, setDataUser] = useState([]);
+
+  useRead({
+    url: `users`,
+    validate: "users",
+    onSuccess: (data) => {
+      setDataUser(data);
+    },
+  });
+
+  return data?.map((user) => <p>{user.name}</p>);
+}
+```
+
+The benefit of passing query data into a Hook is that you can use this method to modify data obtained from the query and then send the changes to an API,
+ussually i using this method for rearange array of the data and Post them.

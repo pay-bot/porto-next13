@@ -1,0 +1,87 @@
+---
+title: BZ Publish Headeless CMS
+description: 'A website to facilitate Baezeni clients for manage content.'
+category: ''
+publishedAt: '2021-11-04'
+techs: 'react,tailwindcss,mui,reactquery,redux'
+date: '2022-08-17T00:00:00Z'
+modifiedTime: '2022-08-19T12:52:00Z'
+link: 'https://admin.bzpublish.com'
+banner: 'Projects/bzpublish/Site-Structure-Baezeni-BZ-Publish_tvrmoe'
+image: 'bzpublish/SiteStructure.png'
+---
+
+> ## Short Explanation
+
+This project was developed to facilitate Bazeni client.
+
+> ## Project Goals
+
+- Developing a user-friendly interface for managing and organizing website content, including news articles, job listings, and other types of content.
+
+- Implementing responsive design to ensure that the CMS and page builder work seamlessly across different devices and screen sizes.
+
+- Incorporating drag-and-drop functionality for easy and intuitive page building for both news and job portal.
+
+- Providing a variety of customizable templates and widgets for news, job portal and general pages to ensure that users can create unique and visually appealing pages without the need for coding knowledge.
+
+- Testing and optimizing the CMS and page builder for performance to ensure fast loading times.
+
+- Continuously monitoring and updating the CMS and page builder to ensure that it stays up-to-date with the latest web development technologies and trends.
+
+- Implementing search and filter functionality for job portal and news articles to make it easy for users to find the information they need.
+
+<blockquote className='with-icons'>
+  ## Tech Stack Used
+  <div className='not-prose mt-2'></div>
+</blockquote>
+
+This project was developed using Create React App in Front End for a snappier website and delivering a quick and easy-to-use interface. and Python Django in Back End.
+
+For the Styling we use numerous framework such as:
+
+- **Tailwind CSS** for create unique styling and ezier layouting
+- **MUI** for UI Component
+
+For the library we use numerous libraries such as:
+
+- **React Query** for data management
+- **Redux Toolkit** for State management
+- **Google Map React** for generate location
+- **React Hook Form** for form management and form validation
+- **React CKEditor 5** for Text editor
+- **React Beaautiful DND** for drag-and-drop section and content
+- **React Dropzone** for drag-and-drop file upload
+- **React Sweetalert 2** for confirmation alert
+- **React Toastify** for giving toast about success and error
+- **etc..**
+
+> ## How BZ PUblish Work ?
+
+### Client Templating
+
+For the first step, each client is provided with one website template. This template is used to collect client data and information. Automation will also create storage in Azure storage based on each client's template. In this part, the admin also sets up the subscription module and site domain.
+
+### Site Structure Setup
+
+The site structure contains a client's sitemap. The frontend will create all pages based on the sitemap.
+
+### Section Templating
+
+In this part, the frontend will create all sections for each page based on the design. The frontend will use the BZ Publish CMS Module to fill the content and consume the content using an API. Clients can add an unlimited number of sections to any page they want.
+
+- **Article** for save article collection
+- **Job Poster** for save Job Poster collection
+- **Media** for save media collection
+- **Text** for save Text collection
+- **Table** for generate Table and Chart data
+
+### Build website
+
+the last step . actually this simple step , for build website admin just select build type , there are two options Preview and Publish, usually preview build the first, after all good with no bug, and then next build the publish
+
+> ## The Problems and How I Deal With It
+
+This is my biggest project with a lot of new technologies for me.
+
+BZ Publish system was designed for can manage various clients needs. like multiple role access, multiple site, multiple language, and many more. but always be chalanging for me is handling multiple language, every CRUD Proses i should create form with function for handle this case. i learn a lot from this. every day during i working this project always fight with form validation, handling array, handling http request. very intresting fight for me .
