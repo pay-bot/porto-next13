@@ -1,10 +1,11 @@
+import Link from "next/link";
 import React from "react";
 import CloudinaryImg from "../images/CloudinaryImg";
 
 export default function ProjectCard({ project }) {
   return (
     <li className="w-full rounded-md border border-gray-300 bg-white dark:border-gray-600 dark:bg-dark">
-      <div
+      <Link
         className="block h-full rounded-md focus:outline-none focus-visible:ring focus-visible:ring-primary-300"
         href={`/blog/${project.slug}`}
       >
@@ -57,7 +58,7 @@ export default function ProjectCard({ project }) {
             {project.description}
           </p>
         </div>
-      </div>
+      </Link>
     </li>
   );
 }

@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import clsx from 'clsx';
-import * as React from 'react';
-import { Tooltip as TippyTooltip, TooltipProps } from 'react-tippy';
+import clsx from "clsx";
+import * as React from "react";
+import { Tooltip as TippyTooltip, TooltipProps } from "react-tippy";
 
 type TooltipTextProps = {
   content?: React.ReactNode;
@@ -11,7 +11,7 @@ type TooltipTextProps = {
   spanClassName?: string;
   withUnderline?: boolean;
 } & TooltipProps &
-  Omit<React.ComponentPropsWithoutRef<'div'>, 'children' | 'className'>;
+  Omit<React.ComponentPropsWithoutRef<"div">, "children" | "className">;
 
 export default function Tooltip({
   content,
@@ -23,14 +23,14 @@ export default function Tooltip({
 }: TooltipTextProps) {
   return (
     <TippyTooltip
-      trigger='mouseenter'
+      trigger="mouseenter"
       interactive
       html={
         <div
           className={clsx(
             className,
-            'inline-block rounded-md bg-white p-2 text-gray-600 shadow-md dark:bg-dark dark:text-gray-200',
-            'border dark:border-gray-600 '
+            "inline-block rounded-md bg-white p-2 text-gray-600 shadow-md dark:bg-dark dark:text-gray-200",
+            "border dark:border-gray-600 "
           )}
         >
           {content}
@@ -40,8 +40,8 @@ export default function Tooltip({
     >
       {withUnderline ? (
         <span
-          className={clsx(spanClassName, 'underline')}
-          style={{ textDecorationStyle: 'dotted' }}
+          className={clsx(spanClassName, "underline")}
+          style={{ textDecorationStyle: "dotted" }}
         >
           {children}
         </span>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import * as React from "react";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 type HeaderProps = {
   large?: boolean;
@@ -42,6 +43,7 @@ export default function Header({ large = false }: HeaderProps) {
             ))}
           </ul>
         </nav>
+        <LanguageSwitcher />
       </div>
     </header>
   );
