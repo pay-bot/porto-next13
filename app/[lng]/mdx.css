@@ -1,28 +1,10 @@
 .prose {
   max-width: 50rem;
+  scroll-behavior: smooth;
 }
 
-.prose code:not(:where([data-code-type='code-block'])) {
- font-family: 'Fira Code', monospace;
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 1em;
-  margin: 0;
-  border-radius: 0.375rem;
-  display: block;
-  color: #d4d4d4;
-  background-color: #1e1e1e;
-  padding: 0;
-  overflow-x: auto;
-  tab-size: 4;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-pre.language-javascript code::selection,
-pre.language-javascript code span::selection {
-  background-color: #77c4d3;
-  color: #fff;
+.prose code:not(:where([data-code-type="code-block"])) {
+  @apply rounded-md px-1 py-1 dark:border-gray-600;
 }
 
 .prose a {
@@ -40,7 +22,7 @@ pre.language-javascript code span::selection {
 
 .prose blockquote p:first-of-type::before,
 .prose blockquote p:last-of-type::after {
-  content: '';
+  content: "";
 }
 
 .prose blockquote {
@@ -93,8 +75,9 @@ pre.language-javascript code span::selection {
 }
 
 .hash-anchor:hover {
-  background-image: linear-gradient(to right, #00ff94, #00e0f3, #00c4fd);
-  background-size: 100% 2px;
+  /* background-image: linear-gradient(to right, #00ff94, #00e0f3, #00c4fd);
+  background-size: 100% 2px; */
+  @apply border-black border-b;
 }
 
 .hash-anchor:hover:after,
@@ -102,7 +85,7 @@ pre.language-javascript code span::selection {
   visibility: visible;
 }
 
-/* .hash-anchor:after {
+.hash-anchor:after {
   @apply invisible absolute -right-5 top-1/2 -translate-y-1/2 text-lg text-primary-400 dark:text-primary-300;
-  content: '#';
-} */
+  content: "#";
+}
