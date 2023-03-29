@@ -2,6 +2,7 @@ import { getFileBySlug, getFiles } from "@/lib/mdx";
 import React from "react";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { languages } from "@/app/i18n/settings";
+import TableOfContents from "../../components/content/TableOfContents";
 
 type PostPageProps = {
   params: {
@@ -19,7 +20,18 @@ export default async function blog({
   const post = await getFileBySlug("blog", blogSlug as string, lng);
   console.log("🚀 ~ file: page.tsx:18 ~ post:", post);
 
-  return <div className="prose mdx">{post?.content}</div>;
+  return (
+    <section className="lg:grid lg:grid-cols-[auto,250px] lg:gap-8">
+      <article className="mdx prose mx-auto mt-4 w-full transition-colors dark:prose-invert">
+        {post?.content}
+      </article>
+      <aside className="py-4">
+        <div className="sticky top-36">
+          <TableOfContents slug={blogSlug} />
+        </div>
+      </aside>
+    </section>
+  );
 }
 
 export async function generateStaticParams() {

@@ -9,11 +9,7 @@ import rehypePrism from "rehype-prism-plus";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 
-import {
-  ContentType,
-  Frontmatter,
-  PickFrontmatter,
-} from "../app/types";
+import { ContentType, Frontmatter, PickFrontmatter } from "../app/types";
 
 export const getFiles = (type: ContentType, locale: string): string[] => {
   return readdirSync(join(process.cwd(), "app", "contents", type, locale));
@@ -38,10 +34,21 @@ export async function getFileBySlug(
     source,
     options: {
       parseFrontmatter: true,
-      // mdxOptions: {
-      //   recmaPlugins: remarkGfm,
-      //   rehypePlugins
-      // },
+      mdxOptions: {
+        recmaPlugins: remarkGfm,
+        rehypePlugins: [
+          rehypeSlug,
+          rehypePrism,
+          [
+            rehypeAutolinkHeadings,
+            {
+              properties: {
+                className: ["hash-anchor"],
+              },
+            },
+          ],
+        ],
+      },
     },
   });
 
