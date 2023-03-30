@@ -1,13 +1,13 @@
 import { getAllFilesFrontmatter, getFeatured } from "@/lib/mdx";
-import BlogCard from "./components/blog/BlogCard";
-import ProjectCard from "./components/project/ProjectCard";
+import BlogCard from "../components/blog/BlogCard";
+import ProjectCard from "../components/project/ProjectCard";
 import { Trans } from "react-i18next/TransWithoutContext";
 import { languages, fallbackLng } from "../i18n/settings";
 import { useTranslation } from "../i18n";
 import clsx from "clsx";
 import Link from "next/link";
-import Accent from "./components/Accent";
-import Seo from "./components/Seo";
+import Accent from "../components/Accent";
+import Seo from "../components/Seo";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -83,14 +83,9 @@ export default async function Home({ params: { lng } }) {
   const projects = await getAllFilesFrontmatter("projects", lng);
 
   const featuredProjects = getFeatured(projects, ["bzpublish", "tbs"]);
-  console.log(
-    "🚀 ~ file: page.tsx:12 ~ Home ~ featuredProjects:",
-    featuredProjects
-  );
 
   if (languages.indexOf(lng) < 0) lng = fallbackLng;
   const { t } = await useTranslation(lng, "common");
-  console.log("🚀 ~ file: page.tsx:24 ~ Home ~ t:", t);
 
   return (
     <div>

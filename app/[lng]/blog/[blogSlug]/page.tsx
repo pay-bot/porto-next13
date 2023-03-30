@@ -1,8 +1,11 @@
 import { getFileBySlug, getFiles } from "@/lib/mdx";
 import React from "react";
-import { MDXRemote } from "next-mdx-remote/rsc";
+import { format } from "date-fns";
 import { languages } from "@/app/i18n/settings";
-import TableOfContents from "../../components/content/TableOfContents";
+import TableOfContents from "../../../components/content/TableOfContents";
+import CloudinaryImg from "../../../components/images/CloudinaryImg";
+import Accent from "../../../components/Accent";
+import { HiOutlineClock, HiOutlineEye } from "react-icons/hi";
 
 type PostPageProps = {
   params: {
@@ -14,23 +17,62 @@ type PostPageProps = {
 export default async function blog({
   params: { lng, blogSlug },
 }: PostPageProps) {
-  console.log("🚀 ~ file: page.tsx:11 ~ blog ~ blogSlug:", blogSlug);
-  console.log("🚀 ~ file: page.tsx:11 ~ blog ~ lng:", lng);
-
   const post = await getFileBySlug("blog", blogSlug as string, lng);
-  console.log("🚀 ~ file: page.tsx:18 ~ post:", post);
 
   return (
-    <section className="lg:grid lg:grid-cols-[auto,250px] lg:gap-8">
-      <article className="mdx prose mx-auto mt-4 w-full transition-colors dark:prose-invert">
-        {post?.content}
-      </article>
-      <aside className="py-4">
-        <div className="sticky top-36">
-          <TableOfContents slug={blogSlug} />
+    <main>
+      <section className="">
+        <div className="layout">
+          <div className="pb-4 dark:border-gray-600">
+            <CloudinaryImg
+              publicId={`/v1673511475/${post.frontmatter.banner}`}
+              alt={`Photo from unsplash: ${post.frontmatter.banner}`}
+              width={1200}
+              height={(1200 * 2) / 5}
+              aspect={{ height: 2, width: 5 }}
+            />
+
+            <h1 className="mt-4">{post.frontmatter.title}</h1>
+
+            <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
+              Written on{" "}
+              {format(new Date(post.frontmatter.publishedAt), "MMMM dd, yyyy")}{" "}
+              by Fahri Alpiansyah.
+            </p>
+            {post.frontmatter.lastUpdated && (
+              <div className="mt-2 flex flex-wrap gap-2 text-sm text-gray-700 dark:text-gray-200">
+                <p>
+                  Last updated{" "}
+                  {format(
+                    new Date(post.frontmatter.lastUpdated),
+                    "MMMM dd, yyyy"
+                  )}
+                  .
+                </p>
+              </div>
+            )}
+            <div className="mt-6 flex items-center justify-start gap-2 text-sm font-medium text-gray-600 dark:text-gray-300">
+              <div className="flex items-center gap-1">
+                <HiOutlineClock className="inline-block text-base" />
+                <Accent>{post.frontmatter.readingTime.text}</Accent>
+              </div>
+            </div>
+          </div>
+
+          <hr className="dark:border-gray-600" />
+          <section className="lg:grid lg:grid-cols-[auto,250px] lg:gap-8">
+            <article className="mdx prose mx-auto mt-4 w-full transition-colors dark:prose-invert">
+              {post?.content}
+            </article>
+            <aside className="py-4">
+              <div className="sticky top-36">
+                <TableOfContents slug={blogSlug} />
+              </div>
+            </aside>
+          </section>
         </div>
-      </aside>
-    </section>
+      </section>
+    </main>
   );
 }
 

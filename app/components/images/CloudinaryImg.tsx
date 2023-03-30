@@ -86,7 +86,7 @@ export default function CloudinaryImg({
         className="img-blur"
         // onClick={preview ? () => setIsOpen(true) : undefined}
       >
-        <div className="absolute top-0 left-0">
+        <div className="absolute top-0 left-0 ">
           <Image
             width={width}
             height={height}

@@ -26,7 +26,7 @@ export default function UnstyledLink({
   if (!isNewTab && !tempLink) {
     return (
       <Link {...rest} className={className} href={href}>
-        {/* {children} */}
+        {children}
       </Link>
     );
   }

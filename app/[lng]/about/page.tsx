@@ -2,8 +2,8 @@ import { useTranslation } from "@/app/i18n";
 import * as React from "react";
 import { languages, fallbackLng } from "../../i18n/settings";
 
-import Accent from "../components/Accent";
-import TechStack from "../components/TechStack";
+import Accent from "../../components/Accent";
+import TechStack from "../../components/TechStack";
 // import TechStack from "@/components/TechStack";
 
 const info = [
