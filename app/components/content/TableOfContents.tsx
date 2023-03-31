@@ -26,14 +26,9 @@ export default function TableOfContents({
   const lastPosition = React.useRef<number>(0);
 
   const [toc, setToc] = React.useState<HeadingScrollSpy>();
-  console.log("🚀 ~ file: TableOfContents.tsx:29 ~ toc:", toc);
 
   React.useEffect(() => {
     const headings = document.querySelectorAll(".mdx h1, .mdx h2, .mdx h3");
-    console.log(
-      "🚀 ~ file: TableOfContents.tsx:33 ~ React.useEffect ~ headings:",
-      headings
-    );
 
     const headingArr: HeadingScrollSpy = [];
     headings.forEach((heading) => {

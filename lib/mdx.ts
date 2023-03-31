@@ -51,7 +51,6 @@ export async function getFileBySlug(
       },
     },
   });
-  console.log("🚀 ~ file: mdx.ts:54 ~ content:", content);
 
   return {
     content,

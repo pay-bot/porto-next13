@@ -1,0 +1,14 @@
+{
+  "en": {
+    "about": {
+      "source": "/about",
+      "destination": "/about"
+    }
+  },
+  "id": {
+    "about": {
+      "source": "/tentang",
+      "destination": "/about"
+    }
+  }
+}

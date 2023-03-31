@@ -37,7 +37,6 @@ export default function UnstyledLink({
       </a>
     );
   }
-  console.log("🚀 ~ file: UnstyledLink.tsx:11 ~ tempLink:", tempLink);
 
   return (
     <a

@@ -18,9 +18,7 @@ type ProjectPageProps = {
 export default async function project({
   params: { lng, projectSlug },
 }: ProjectPageProps) {
-
   const project = await getFileBySlug("projects", projectSlug as string, lng);
-  console.log("🚀 ~ file: page.tsx:18 ~ project:", project);
 
   return (
     <main>

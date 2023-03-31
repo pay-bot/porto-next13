@@ -16,10 +16,6 @@ type ProjectCardProps = {
 } & React.ComponentPropsWithoutRef<"li">;
 
 export default function ProjectCard({ project, className }: ProjectCardProps) {
-  console.log(
-    "🚀 ~ file: ProjectCard.tsx:18 ~ ProjectCard ~ project:",
-    project
-  );
   return (
     <li className=" project-card rounded-md md:w-full border dark:border-gray-600 scale-100 hover:scale-[1.02] active:scale-[0.97] motion-safe:transform-gpu transition duration-100 motion-reduce:hover:scale-100 animate-shadow">
       <Link

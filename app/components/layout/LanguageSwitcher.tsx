@@ -15,28 +15,13 @@ const languageNames = {
 };
 
 export default function LanguageSwitcher({ params }) {
-  console.log(
-    "🚀 ~ file: LanguageSwitcher.tsx:18 ~ LanguageSwitcher ~ params:",
-    params
-  );
   //#region  //*=========== Route Functionality ===========
   const pathname = usePathname();
-  console.log(
-    "🚀 ~ file: LanguageSwitcher.tsx:20 ~ LanguageSwitcher ~ pathname:",
-    pathname
-  );
+
   const router = useRouter();
   const [cookies, setCookie] = useCookies(["NEXT_LOCALE"]);
-  console.log(
-    "🚀 ~ file: LanguageSwitcher.tsx:30 ~ LanguageSwitcher ~ cookie:",
-    cookies
-  );
 
   const cookieValue = cookies["NEXT_LOCALE"];
-  console.log(
-    "🚀 ~ file: LanguageSwitcher.tsx:34 ~ LanguageSwitcher ~ cookieValue:",
-    cookieValue
-  );
 
   const arrOfRoute = pathname.split("/");
 
@@ -62,7 +47,8 @@ export default function LanguageSwitcher({ params }) {
     setCookie("NEXT_LOCALE", locale, { path: "/" });
     if (!pathname) return "/";
     const segments = pathname.split("/");
-if (pathname.includes("en") || pathname.includes("id")) segments[1] = locale;
+    if (pathname.includes("en") || pathname.includes("id"))
+      segments[1] = locale;
     return router.push(segments.join("/"));
   };
 
@@ -82,7 +68,7 @@ if (pathname.includes("en") || pathname.includes("id")) segments[1] = locale;
         className="rounded border bg-transparent text-sm"
       >
         {languages.map((locale) => (
-          <option  key={locale} value={locale}>
+          <option key={locale} value={locale}>
             {languageNames[locale]}
           </option>
         ))}
