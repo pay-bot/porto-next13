@@ -1,10 +1,7 @@
-import { buildUrl } from "cloudinary-build-url";
-// import clsx from "clsx";
-import Image from "next/image";
-// import * as React from 'react';
-// import Lightbox from 'react-image-lightbox';
+"use client";
 
-// import "react-image-lightbox/style.css";
+import { buildUrl } from "cloudinary-build-url";
+import Image from "next/image";
 
 type CloudinaryImgType = {
   publicId: string;

@@ -8,6 +8,7 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrism from "rehype-prism-plus";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
+import { Components } from "../app/components/ui/server/MDXRemote";
 
 import { ContentType, Frontmatter, PickFrontmatter } from "../app/types";
 
@@ -50,6 +51,7 @@ export async function getFileBySlug(
         ],
       },
     },
+    components: { ...(Components as any) },
   });
 
   return {

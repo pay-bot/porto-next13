@@ -20,11 +20,11 @@ export default async function AboutPage({ params: { lng } }) {
     <main>
       <section className={"fade-in-start"}>
         <div className="layout min-h-main py-20">
-          <h2 data-fade="0">About</h2>
-          <h1 className="mt-1" data-fade="1">
+          <h2>About</h2>
+          <h1 className="mt-1">
             <Accent>Fahri Alpiansyah</Accent>
           </h1>
-          <div className="mt-4" data-fade="2">
+          <div className="mt-4">
             {/* <CloudinaryImg
                 className='float-right ml-6 w-36 md:w-72 object-cover'
                 publicId='fahri_vdiewu'
@@ -39,9 +39,9 @@ export default async function AboutPage({ params: { lng } }) {
               className="mx-auto h-80 w-72  object-cover object-top md:float-right md:ml-6 md:my-0 my-10"
             />
             <article className="prose dark:prose-invert">
-              <p data-fade="3">{t("about.p1")}</p>
-              <p data-fade="4">{t("about.p2")}</p>
-              <p data-fade="5">{t("about.p3")}</p>
+              <p>{t("about.p1")}</p>
+              <p>{t("about.p2")}</p>
+              <p>{t("about.p3")}</p>
             </article>
 
             <div className="mt-10 flex items-center gap-7">

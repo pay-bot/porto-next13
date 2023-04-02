@@ -25,7 +25,7 @@ export default async function project({
       <section className="">
         <div className="layout">
           <CloudinaryImg
-            publicId={`/${project.banner}`}
+            publicId={`/v1673511475//${project.banner}`}
             alt={project.title}
             width={1440}
             height={792}

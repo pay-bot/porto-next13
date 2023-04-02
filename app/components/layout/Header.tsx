@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { useRouter } from "next/router";
 import * as React from "react";
 import LanguageSwitcher from "./LanguageSwitcher";
 
@@ -12,7 +11,7 @@ const languageNames = {
   id: "ID 🇮🇩",
 };
 
-export default function Header({ large = false }: HeaderProps) {
+export default function Header({ large = false, lang }: HeaderProps) {
   return (
     <header className="">
       <div className="h-2 bg-gradient-to-tr from-primary-200 via-primary-300 to-primary-400" />
@@ -39,7 +38,7 @@ export default function Header({ large = false }: HeaderProps) {
               </li>
             ))}
           </ul>
-          <LanguageSwitcher />
+          <LanguageSwitcher lang={lang} />
         </nav>
       </div>
     </header>
@@ -49,7 +48,7 @@ export default function Header({ large = false }: HeaderProps) {
 const links = [
   { href: "/", label: "Home" },
   { href: "/blog", label: "Blog" },
-  { href: "/projects", label: "Projects" },
+  { href: "/project", label: "Project" },
   // { href: '/library', label: 'Library' },
   { href: "/about", label: "About" },
 ];
