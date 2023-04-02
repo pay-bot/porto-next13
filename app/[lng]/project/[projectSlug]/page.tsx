@@ -1,12 +1,11 @@
 import { getFileBySlug, getFiles } from "@/lib/mdx";
 import React from "react";
-import { format } from "date-fns";
 import { languages } from "@/app/i18n/settings";
 import TableOfContents from "../../../components/content/TableOfContents";
 import CloudinaryImg from "../../../components/images/CloudinaryImg";
-import Accent from "../../../components/Accent";
-import { HiOutlineClock, HiOutlineEye } from "react-icons/hi";
+
 import CustomLink from "@/app/components/links/CustomLink";
+import { HiLink } from "react-icons/hi";
 
 type ProjectPageProps = {
   params: {
@@ -25,15 +24,15 @@ export default async function project({
       <section className="">
         <div className="layout">
           <CloudinaryImg
-            publicId={`/v1673511475//${project.banner}`}
-            alt={project.title}
+            publicId={`/v1673511475/${project.frontmatter.banner}`}
+            alt={project.frontmatter.title}
             width={1440}
             height={792}
           />
 
-          <h1 className="mt-4">{project.title}</h1>
+          <h1 className="mt-4">{project.frontmatter.title}</h1>
           <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
-            {project.description}
+            {project.frontmatter.description}
           </p>
 
           <div className="mt-2 flex flex-wrap items-center justify-start gap-3 text-sm font-medium text-gray-600 dark:text-gray-300">
@@ -77,26 +76,20 @@ export default async function project({
                 </div>
               )}
               {project.youtube && project.link && ' - '} */}
-            {project.link && (
+            {project.frontmatter.link && (
               <div className="inline-flex items-center gap-2">
                 <HiLink className="text-lg text-gray-800 dark:text-white" />
-                <CustomLink
-                  href={project.link}
-                  className="mt-1"
-                  onClick={() =>
-                    trackEvent(`Project Live: ${project.title}`, "link")
-                  }
-                >
+                <CustomLink href={project.frontmatter.link} className="mt-1">
                   Open Live Site
                 </CustomLink>
               </div>
             )}
           </div>
 
-          {project.category && (
+          {project.frontmatter.category && (
             <p className="mt-2 flex items-center justify-start gap-2 text-sm text-gray-600 dark:text-gray-300">
               <HiUser className="text-lg text-gray-800 dark:text-white" />{" "}
-              {project.category}
+              {project.frontmatter.category}
             </p>
           )}
 
