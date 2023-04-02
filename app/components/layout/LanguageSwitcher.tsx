@@ -1,9 +1,8 @@
 "use client";
 
+import * as React from "react";
 import { languages } from "@/app/i18n/settings";
 import { usePathname, useRouter } from "next/navigation";
-import * as React from "react";
-import { useCookies } from "react-cookie";
 
 type HeaderProps = {
   large?: boolean;
@@ -15,23 +14,12 @@ const languageNames = {
 };
 
 export default function LanguageSwitcher({ lang }) {
-  console.log(
-    "🚀 ~ file: LanguageSwitcher.tsx:18 ~ LanguageSwitcher ~ lang:",
-    lang
-  );
-  //#region  //*=========== Route Functionality ===========
   const pathname = usePathname();
+  const router = useRouter();
   const segments = pathname.split("/");
 
-  const router = useRouter();
-  const [cookies, setCookie] = useCookies(["NEXT_LOCALE"]);
-
-  const cookieValue = cookies["NEXT_LOCALE"];
-
   const redirectedPathName = (locale: string) => {
-    setCookie("NEXT_LOCALE", locale, { path: "/" });
     if (!pathname) return "/";
-
     if (pathname.includes("en") || pathname.includes("id"))
       segments[1] = locale;
     return router.push(segments.join("/"));
