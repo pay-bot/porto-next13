@@ -7,6 +7,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        "sec-text": "#444444",
         purplevs: '#a173c2',
         redvs: '#e46b76',
         greenvs: '#98c177',
