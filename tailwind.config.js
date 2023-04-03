@@ -6,6 +6,9 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",],
   theme: {
     extend: {
+      fontFamily: {
+        serif: ['var(--font-kaisei)'],
+      },
       colors: {
         "sec-text": "#444444",
         purplevs: '#a173c2',

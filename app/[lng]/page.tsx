@@ -10,71 +10,71 @@ import { IoNewspaperSharp } from "react-icons/io5";
 import { SiGithub } from "@icons-pack/react-simple-icons";
 import ButtonLink from "../components/links/ButtonLink";
 
-export const metadata: Metadata = {
-  title: "Fahri Alpiansyah",
-  siteName: "fahrialpiansyah.my.id",
-  description:
-    "An online portfolio and blog by Fahri Alpiansyah. Showcase of my projects, and some of my thoughts about website development.",
-  url: "https://fahrialpiansyah.my.id",
-  image: "https://fahrialpiansyah.my.id/favicon/large-og.jpg",
-  type: "website",
-  robots: "follow, index",
-  openGraph: {
-    title: "Next.js",
-    description: "The React Framework for the Web",
-    url: "https://nextjs.org",
-    siteName: "Next.js",
-    images: [
-      {
-        url: "https://nextjs.org/og.png",
-        width: 800,
-        height: 600,
-      },
-      {
-        url: "https://nextjs.org/og-alt.png",
-        width: 1800,
-        height: 1600,
-        alt: "My custom alt",
-      },
-    ],
-    locale: "en-US",
-    type: "website",
-  },
-  robots: {
-    index: false,
-    follow: true,
-    nocache: true,
-    googleBot: {
-      index: true,
-      follow: false,
-      noimageindex: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-  icons: {
-    icon: [
-      { url: "/favicon/favicon-32x32.png" },
-      new URL("/favicon/favicon-32x32.png", "https://example.com"),
-    ],
-    shortcut: ["/shortcut-icon.png"],
-    apple: [
-      { url: "/apple-icon.png" },
-      {
-        url: "/static/favicon/apple-icon-57x57.png",
-        // sizes: "180x180",
-        type: "image/png",
-      },
-    ],
-    other: [
-      {
-        rel: "apple-touch-icon-precomposed",
-        url: "/apple-touch-icon-precomposed.png",
-      },
-    ],
-  },
-};
+// export const metadata: Metadata = {
+//   title: "Fahri Alpiansyah",
+//   siteName: "fahrialpiansyah.my.id",
+//   description:
+//     "An online portfolio and blog by Fahri Alpiansyah. Showcase of my projects, and some of my thoughts about website development.",
+//   url: "https://fahrialpiansyah.my.id",
+//   image: "https://fahrialpiansyah.my.id/favicon/large-og.jpg",
+//   type: "website",
+//   robots: "follow, index",
+//   openGraph: {
+//     title: "Next.js",
+//     description: "The React Framework for the Web",
+//     url: "https://nextjs.org",
+//     siteName: "Next.js",
+//     images: [
+//       {
+//         url: "https://nextjs.org/og.png",
+//         width: 800,
+//         height: 600,
+//       },
+//       {
+//         url: "https://nextjs.org/og-alt.png",
+//         width: 1800,
+//         height: 1600,
+//         alt: "My custom alt",
+//       },
+//     ],
+//     locale: "en-US",
+//     type: "website",
+//   },
+//   robots: {
+//     index: false,
+//     follow: true,
+//     nocache: true,
+//     googleBot: {
+//       index: true,
+//       follow: false,
+//       noimageindex: true,
+//       "max-video-preview": -1,
+//       "max-image-preview": "large",
+//       "max-snippet": -1,
+//     },
+//   },
+//   icons: {
+//     icon: [
+//       { url: "/favicon/favicon-32x32.png" },
+//       new URL("/favicon/favicon-32x32.png", "https://example.com"),
+//     ],
+//     shortcut: ["/shortcut-icon.png"],
+//     apple: [
+//       { url: "/apple-icon.png" },
+//       {
+//         url: "/static/favicon/apple-icon-57x57.png",
+//         // sizes: "180x180",
+//         type: "image/png",
+//       },
+//     ],
+//     other: [
+//       {
+//         rel: "apple-touch-icon-precomposed",
+//         url: "/apple-touch-icon-precomposed.png",
+//       },
+//     ],
+//   },
+// };
 
 export default async function Home({ params: { lng } }) {
   const blogs = await getAllFilesFrontmatter("blog", lng);

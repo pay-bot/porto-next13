@@ -1,7 +1,8 @@
 import "../styles/dracula.css";
 import "../styles/globals.css";
 import "../styles/mdx.css";
-
+import localFont from "next/font/local";
+import clsx from "clsx";
 import { languages } from "../i18n/settings";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
@@ -10,6 +11,13 @@ import { Chia } from "../shared/meta/chia";
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));
 }
+
+const kaisei = localFont({
+  src: "../../public/fonts/kaisei-tokumin-latin-700-normal.woff2",
+  weight: "700",
+  variable: "--font-kaisei",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -85,7 +93,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children, params: { lng } }) {
   return (
-    <html lang={lng}>
+    <html
+      lang={lng}
+      className={[
+        "text-black bg-white dark:text-white dark:bg-[#111010]",
+        kaisei.variable,
+      ].join(" ")}
+    >
       <head />
       <body className=" scrollbar-thin scrollbar-thumb-secondary scrollbar-thumb-rounded-full">
         <div className="">
