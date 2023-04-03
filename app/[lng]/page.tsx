@@ -6,6 +6,8 @@ import { useTranslation } from "../i18n";
 import Link from "next/link";
 import Accent from "../components/Accent";
 import type { Metadata } from "next";
+import { IoNewspaperSharp } from "react-icons/io5";
+import { SiGithub } from "@icons-pack/react-simple-icons";
 
 export const metadata: Metadata = {
   title: "Fahri Alpiansyah",
@@ -112,7 +114,7 @@ export default async function Home({ params: { lng } }) {
                   href="https://drive.google.com/file/d/12PE3fknn3DTGdVNYYv55bgJh7g6T81u6/view?usp=sharing"
                   className="inline-flex items-center gap-1 text-sm font-medium md:text-base text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-primary-300 transition-colors"
                 >
-                  {/* <IoNewspaperSharp className="shrink-0" /> */}
+                  <IoNewspaperSharp className="shrink-0" />
                   <span>Resume</span>
                 </Link>
 
@@ -120,7 +122,7 @@ export default async function Home({ params: { lng } }) {
                   href="https://github.com/pay-bot"
                   className="inline-flex items-center gap-1 text-sm font-medium md:text-base text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-primary-300 transition-colors"
                 >
-                  {/* <SiGithub className="shrink-0" /> */}
+                  <SiGithub className="shrink-0" />
                   <span>github.com/pay-bot</span>
                 </Link>
               </div>

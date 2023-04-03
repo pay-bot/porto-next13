@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 
 import { buildUrl } from "cloudinary-build-url";
 import Image from "next/image";

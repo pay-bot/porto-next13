@@ -42,7 +42,11 @@ export default function LanguageSwitcher({ lang }) {
         ))}
       </select> */}
       {languages.map((locale) => (
-        <Link href={redirectedPathName(locale)} key={locale} className={locale === lang && 'border-blue-400 border-b-2'}>
+        <Link
+          href={redirectedPathName(locale)}
+          key={locale}
+          className={locale === lang ? "border-blue-400 border-b-2" : ""}
+        >
           {languageNames[locale]}
         </Link>
       ))}
