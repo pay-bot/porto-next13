@@ -8,6 +8,7 @@ import Accent from "../components/Accent";
 import type { Metadata } from "next";
 import { IoNewspaperSharp } from "react-icons/io5";
 import { SiGithub } from "@icons-pack/react-simple-icons";
+import ButtonLink from "../components/links/ButtonLink";
 
 export const metadata: Metadata = {
   title: "Fahri Alpiansyah",
@@ -131,22 +132,37 @@ export default async function Home({ params: { lng } }) {
           </div>
         </article>
       </section>
-      <section>
+      <section className="py-20">
         <article className="layout">
+          <h2 className="text-2xl md:text-4xl" id="blog">
+            <Accent>Featured Posts</Accent>
+          </h2>
           <ul className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
             {featuredPosts?.map((post) => (
               <BlogCard key={post.slug} post={post} />
             ))}
           </ul>
+          <ButtonLink className="mt-4" href="/blog">
+            See more post
+          </ButtonLink>
         </article>
       </section>
-      <section>
+      <section className="py-20">
         <article className="layout">
+          <h2 className="text-2xl md:text-4xl" id="projects">
+            <Accent>Featured Projects</Accent>
+          </h2>
+          <p className="mt-2 text-gray-600 dark:text-gray-300">
+            Some projects that I'm proud of
+          </p>
           <ul className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
             {featuredProjects?.map((project) => (
               <ProjectCard key={project.slug} project={project} />
             ))}
           </ul>
+          <ButtonLink className="mt-4" href="/projects">
+            See more project
+          </ButtonLink>
         </article>
       </section>
     </main>

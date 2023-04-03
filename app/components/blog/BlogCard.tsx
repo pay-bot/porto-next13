@@ -1,8 +1,14 @@
+import { BlogFrontmatter, InjectedMeta } from "@/app/types/frontmatters";
 import Link from "next/link";
 import React from "react";
 import CloudinaryImg from "../images/CloudinaryImg";
 
-export default function BlogCard({ post }) {
+type BlogCardProps = {
+  post: BlogFrontmatter & InjectedMeta;
+  checkTagged?: (tag: string) => boolean;
+} & React.ComponentPropsWithoutRef<"li">;
+
+export default function BlogCard({ post }: BlogCardProps) {
   return (
     <li className="w-full rounded-md border border-gray-300 bg-white dark:border-gray-600 dark:bg-dark">
       <Link
