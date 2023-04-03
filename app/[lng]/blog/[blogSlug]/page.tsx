@@ -7,6 +7,7 @@ import CloudinaryImg from "../../../components/images/CloudinaryImg";
 import Accent from "../../../components/Accent";
 import { HiOutlineClock, HiOutlineEye } from "react-icons/hi";
 import { notFound } from "next/navigation";
+import CustomLink from "@/app/components/links/CustomLink";
 
 type PostPageProps = {
   params: {
@@ -75,6 +76,9 @@ export default async function blog({
                 </div>
               </aside>
             </section>
+            <div className="mt-8 flex flex-col items-start gap-4 ">
+              <CustomLink href="/blog">← Back to blog</CustomLink>
+            </div>
           </div>
         </section>
       </main>

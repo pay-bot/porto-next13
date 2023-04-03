@@ -17,26 +17,26 @@ type ProjectPageProps = {
 export default async function project({
   params: { lng, projectSlug },
 }: ProjectPageProps) {
-  const project = await getFileBySlug("projects", projectSlug as string, lng);
+  try {
+    const project = await getFileBySlug("projects", projectSlug as string, lng);
+    return (
+      <main>
+        <section className="">
+          <div className="layout">
+            <CloudinaryImg
+              publicId={`/v1673511475/${project.frontmatter.banner}`}
+              alt={project.frontmatter.title}
+              width={1440}
+              height={792}
+            />
 
-  return (
-    <main>
-      <section className="">
-        <div className="layout">
-          <CloudinaryImg
-            publicId={`/v1673511475/${project.frontmatter.banner}`}
-            alt={project.frontmatter.title}
-            width={1440}
-            height={792}
-          />
+            <h1 className="mt-4">{project.frontmatter.title}</h1>
+            <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
+              {project.frontmatter.description}
+            </p>
 
-          <h1 className="mt-4">{project.frontmatter.title}</h1>
-          <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
-            {project.frontmatter.description}
-          </p>
-
-          <div className="mt-2 flex flex-wrap items-center justify-start gap-3 text-sm font-medium text-gray-600 dark:text-gray-300">
-            {/* <div className='flex items-center gap-1'>
+            <div className="mt-2 flex flex-wrap items-center justify-start gap-3 text-sm font-medium text-gray-600 dark:text-gray-300">
+              {/* <div className='flex items-center gap-1'>
                 <HiOutlineEye className='inline-block text-base' />
                 {meta?.views?.toLocaleString() ?? '–––'} views
               </div>
@@ -76,52 +76,50 @@ export default async function project({
                 </div>
               )}
               {project.youtube && project.link && ' - '} */}
-            {project.frontmatter.link && (
-              <div className="inline-flex items-center gap-2">
-                <HiLink className="text-lg text-gray-800 dark:text-white" />
-                <CustomLink href={project.frontmatter.link} className="mt-1">
-                  Open Live Site
-                </CustomLink>
-              </div>
+              {project.frontmatter.link && (
+                <div className="inline-flex items-center gap-2">
+                  <HiLink className="text-lg text-gray-800 dark:text-white" />
+                  <CustomLink href={project.frontmatter.link} className="mt-1">
+                    Open Live Site
+                  </CustomLink>
+                </div>
+              )}
+            </div>
+
+            {project.frontmatter.category && (
+              <p className="mt-2 flex items-center justify-start gap-2 text-sm text-gray-600 dark:text-gray-300">
+                <HiUser className="text-lg text-gray-800 dark:text-white" />{" "}
+                {project.frontmatter.category}
+              </p>
             )}
-          </div>
 
-          {project.frontmatter.category && (
-            <p className="mt-2 flex items-center justify-start gap-2 text-sm text-gray-600 dark:text-gray-300">
-              <HiUser className="text-lg text-gray-800 dark:text-white" />{" "}
-              {project.frontmatter.category}
-            </p>
-          )}
+            <hr className="mt-4 dark:border-gray-600" />
 
-          <hr className="mt-4 dark:border-gray-600" />
+            <section className="lg:grid lg:grid-cols-[auto,250px] lg:gap-8">
+              <article className="mdx projects prose mx-auto w-full transition-colors dark:prose-invert">
+                {project?.content}
+              </article>
 
-          <section className="lg:grid lg:grid-cols-[auto,250px] lg:gap-8">
-            <article className="mdx projects prose mx-auto w-full transition-colors dark:prose-invert">
-              {project?.content}
-            </article>
-
-            <aside className="py-4">
-              <div className="sticky top-36">
-                <TableOfContents slug={projectSlug} />
-                {/* <div className='flex items-center justify-center py-8'>
+              <aside className="py-4">
+                <div className="sticky top-36">
+                  <TableOfContents slug={projectSlug} />
+                  {/* <div className='flex items-center justify-center py-8'>
                     <LikeButton slug={contentSlug} />
                   </div> */}
-              </div>
-            </aside>
-          </section>
+                </div>
+              </aside>
+            </section>
 
-          <div className="mt-8 flex flex-col items-start gap-4 ">
-            {/* <CustomLink
-                href={`https://github.com/alfian/fahrialpiansyah.my.id/blob/main/src/contents/projects/${project.slug}.mdx`}
-              >
-                Edit this on GitHub
-              </CustomLink> */}
-            <CustomLink href="/projects">← Back to projects</CustomLink>
+            <div className="mt-8 flex flex-col items-start gap-4 ">
+              <CustomLink href="/project">← Back to projects</CustomLink>
+            </div>
           </div>
-        </div>
-      </section>
-    </main>
-  );
+        </section>
+      </main>
+    );
+  } catch (error) {
+    notFound();
+  }
 }
 
 export async function generateStaticParams() {
