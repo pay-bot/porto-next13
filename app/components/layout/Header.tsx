@@ -6,11 +6,6 @@ type HeaderProps = {
   large?: boolean;
 };
 
-const languageNames = {
-  en: "EN 🇬🇧",
-  id: "ID 🇮🇩",
-};
-
 export default function Header({ large = false, lang }: HeaderProps) {
   return (
     <header className="">

@@ -70,12 +70,12 @@ export async function getAllFilesFrontmatter<T extends ContentType>(
   locale: string
 ) {
   const files = readdirSync(
-    join(process.cwd(), "app", "contents", type, locale)
+    join(process.cwd(), "app", "contents", type, locale = 'en')
   );
 
   return files.reduce((allPosts: Array<PickFrontmatter<T>>, postSlug) => {
     const source = readFileSync(
-      join(process.cwd(), "app", "contents", type, locale, postSlug),
+      join(process.cwd(), "app", "contents", type, locale = 'en', postSlug),
       "utf8"
     );
     const { data } = matter(source);
