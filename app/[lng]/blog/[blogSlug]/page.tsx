@@ -22,66 +22,88 @@ export default async function blog({
   try {
     const post = await getFileBySlug("blog", blogSlug as string, lng);
 
+    const jsonLd: WithContext<Blog> = {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      headline: post?.title,
+      datePublished: post?.publishedAt,
+      dateModified: post?.publishedAt,
+      name: post?.title,
+      description: post?.description,
+      image: `/api/og?title=${encodeURIComponent(post?.title ?? "")}`,
+      keywords: post?.tags?.join(","),
+      author: {
+        "@type": "Person",
+        name: "Chia1104",
+      },
+    };
+
     return (
-      <main>
-        <section className="">
-          <div className="layout">
-            <div className="pb-4 dark:border-gray-600">
-              <CloudinaryImg
-                publicId={`/v1673511475/${post.frontmatter.banner}`}
-                alt={`Photo from unsplash: ${post.frontmatter.banner}`}
-                width={1200}
-                height={(1200 * 2) / 5}
-                aspect={{ height: 2, width: 5 }}
-              />
+      <>
+        <main>
+          <section className="">
+            <div className="layout">
+              <div className="pb-4 dark:border-gray-600">
+                <CloudinaryImg
+                  publicId={`/v1673511475/${post.frontmatter.banner}`}
+                  alt={`Photo from unsplash: ${post.frontmatter.banner}`}
+                  width={1200}
+                  height={(1200 * 2) / 5}
+                  aspect={{ height: 2, width: 5 }}
+                />
 
-              <h1 className="mt-4">{post.frontmatter.title}</h1>
+                <h1 className="mt-4">{post.frontmatter.title}</h1>
 
-              <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
-                Written on{" "}
-                {format(
-                  new Date(post.frontmatter.publishedAt),
-                  "MMMM dd, yyyy"
-                )}{" "}
-                by Fahri Alpiansyah.
-              </p>
-              {post.frontmatter.lastUpdated && (
-                <div className="mt-2 flex flex-wrap gap-2 text-sm text-gray-700 dark:text-gray-200">
-                  <p>
-                    Last updated{" "}
-                    {format(
-                      new Date(post.frontmatter.lastUpdated),
-                      "MMMM dd, yyyy"
-                    )}
-                    .
-                  </p>
-                </div>
-              )}
-              <div className="mt-6 flex items-center justify-start gap-2 text-sm font-medium text-gray-600 dark:text-gray-300">
-                <div className="flex items-center gap-1">
-                  <HiOutlineClock className="inline-block text-base" />
-                  <Accent>{post.frontmatter.readingTime.text}</Accent>
+                <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
+                  Written on{" "}
+                  {format(
+                    new Date(post.frontmatter.publishedAt),
+                    "MMMM dd, yyyy"
+                  )}{" "}
+                  by Fahri Alpiansyah.
+                </p>
+                {post.frontmatter.lastUpdated && (
+                  <div className="mt-2 flex flex-wrap gap-2 text-sm text-gray-700 dark:text-gray-200">
+                    <p>
+                      Last updated{" "}
+                      {format(
+                        new Date(post.frontmatter.lastUpdated),
+                        "MMMM dd, yyyy"
+                      )}
+                      .
+                    </p>
+                  </div>
+                )}
+                <div className="mt-6 flex items-center justify-start gap-2 text-sm font-medium text-gray-600 dark:text-gray-300">
+                  <div className="flex items-center gap-1">
+                    <HiOutlineClock className="inline-block text-base" />
+                    <Accent>{post.frontmatter.readingTime.text}</Accent>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <hr className="dark:border-gray-600" />
-            <section className="lg:grid lg:grid-cols-[auto,250px] lg:gap-8">
-              <article className="mdx prose mx-auto mt-4 w-full transition-colors dark:prose-invert">
-                {post?.content}
-              </article>
-              <aside className="py-4">
-                <div className="sticky top-36">
-                  <TableOfContents slug={blogSlug} />
-                </div>
-              </aside>
-            </section>
-            <div className="mt-8 flex flex-col items-start gap-4 ">
-              <CustomLink href="/blog">← Back to blog</CustomLink>
+              <hr className="dark:border-gray-600" />
+              <section className="lg:grid lg:grid-cols-[auto,250px] lg:gap-8">
+                <article className="mdx prose mx-auto mt-4 w-full transition-colors dark:prose-invert">
+                  {post?.content}
+                </article>
+                <aside className="py-4">
+                  <div className="sticky top-36">
+                    <TableOfContents slug={blogSlug} />
+                  </div>
+                </aside>
+              </section>
+              <div className="mt-8 flex flex-col items-start gap-4 ">
+                <CustomLink href="/blog">← Back to blog</CustomLink>
+              </div>
             </div>
-          </div>
-        </section>
-      </main>
+          </section>
+        </main>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </>
     );
   } catch (error) {
     notFound();
