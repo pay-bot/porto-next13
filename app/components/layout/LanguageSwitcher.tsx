@@ -3,6 +3,7 @@
 import * as React from "react";
 import { languages } from "@/app/i18n/settings";
 import { usePathname, useRouter } from "next/navigation";
+import Link from "next/link";
 
 type HeaderProps = {
   large?: boolean;
@@ -20,14 +21,15 @@ export default function LanguageSwitcher({ lang }) {
 
   const redirectedPathName = (locale: string) => {
     if (!pathname) return "/";
-    if (pathname.includes("en") || pathname.includes("id"))
+    if (pathname.includes("en") || pathname.includes("id")) {
       segments[1] = locale;
-    return router.push(segments.join("/"));
+    } else segments[0] = locale;
+    return segments.join("/");
   };
 
   return (
     <div className="flex items-center space-x-4">
-      <select
+      {/* <select
         name="locales"
         onChange={(event) => redirectedPathName(event.target.value)}
         defaultValue={lang}
@@ -38,7 +40,12 @@ export default function LanguageSwitcher({ lang }) {
             {languageNames[locale]}
           </option>
         ))}
-      </select>
+      </select> */}
+      {languages.map((locale) => (
+        <Link href={redirectedPathName(locale)} key={locale} className={locale === lang && 'border-blue-400 border-b-2'}>
+          {languageNames[locale]}
+        </Link>
+      ))}
     </div>
   );
 }

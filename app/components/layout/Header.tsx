@@ -22,7 +22,7 @@ export default function Header({ large = false, lang }: HeaderProps) {
             {links.map(({ href, label }) => (
               <li key={`${href}${label}`}>
                 <Link
-                  href={href}
+                  href={`${lang}${href}`}
                   className="rounded-sm py-2 transition-colors
                     font-medium text-black dark:text-white
                     group dark:hover:text-primary-300
