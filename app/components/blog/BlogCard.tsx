@@ -2,13 +2,15 @@ import { BlogFrontmatter, InjectedMeta } from "@/app/types/frontmatters";
 import Link from "next/link";
 import React from "react";
 import CloudinaryImg from "../images/CloudinaryImg";
+import Tag from "../content/Tag";
+import Accent from "../Accent";
 
 type BlogCardProps = {
   post: BlogFrontmatter & InjectedMeta;
   checkTagged?: (tag: string) => boolean;
 } & React.ComponentPropsWithoutRef<"li">;
 
-export default function BlogCard({ post }: BlogCardProps) {
+export default function BlogCard({ post, checkTagged }: BlogCardProps) {
   return (
     <li className="w-full rounded-md border border-gray-300 bg-white dark:border-gray-600 dark:bg-dark">
       <Link
@@ -27,15 +29,15 @@ export default function BlogCard({ post }: BlogCardProps) {
             preview={false}
           />
           <div className={"absolute bottom-0 w-full px-4 py-2"}>
-            {/* {post.tags.split(",").map((tag) => (
-                    <Tag
-                      tabIndex={-1}
-                      className="bg-opacity-80 dark:!bg-opacity-60"
-                      key={tag}
-                    >
-                      {checkTagged?.(tag) ? <Accent>{tag}</Accent> : tag}
-                    </Tag>
-                  ))} */}
+            {post.tags.split(",").map((tag) => (
+              <Tag
+                tabIndex={-1}
+                className="bg-opacity-80 dark:!bg-opacity-60"
+                key={tag}
+              >
+                {checkTagged?.(tag) ? <Accent>{tag}</Accent> : tag}
+              </Tag>
+            ))}
           </div>
         </div>
         <div className="p-4">
@@ -68,3 +70,4 @@ export default function BlogCard({ post }: BlogCardProps) {
     </li>
   );
 }
+

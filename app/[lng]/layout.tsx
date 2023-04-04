@@ -2,7 +2,7 @@ import "../styles/dracula.css";
 import "../styles/globals.css";
 import "../styles/mdx.css";
 import localFont from "next/font/local";
-import clsx from "clsx";
+import type { Metadata } from "next";
 import { languages } from "../i18n/settings";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
@@ -106,4 +106,5 @@ export default function RootLayout({ children, params: { lng } }) {
     </html>
   );
 }
+
 

@@ -1,4 +1,3 @@
-import clsx from "clsx";
 import Link, { LinkProps } from "next/link";
 
 export type UnstyledLinkProps = {
@@ -44,9 +43,10 @@ export default function UnstyledLink({
       rel="noopener noreferrer"
       href={href}
       {...rest}
-      className={clsx(className, "cursor-newtab")}
+      className={[className, "cursor-newtab"].join(" ")}
     >
       {children}
     </a>
   );
 }
+

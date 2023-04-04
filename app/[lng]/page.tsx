@@ -10,72 +10,6 @@ import { IoNewspaperSharp } from "react-icons/io5";
 import { SiGithub } from "@icons-pack/react-simple-icons";
 import ButtonLink from "../components/links/ButtonLink";
 
-// export const metadata: Metadata = {
-//   title: "Fahri Alpiansyah",
-//   siteName: "fahrialpiansyah.my.id",
-//   description:
-//     "An online portfolio and blog by Fahri Alpiansyah. Showcase of my projects, and some of my thoughts about website development.",
-//   url: "https://fahrialpiansyah.my.id",
-//   image: "https://fahrialpiansyah.my.id/favicon/large-og.jpg",
-//   type: "website",
-//   robots: "follow, index",
-//   openGraph: {
-//     title: "Next.js",
-//     description: "The React Framework for the Web",
-//     url: "https://nextjs.org",
-//     siteName: "Next.js",
-//     images: [
-//       {
-//         url: "https://nextjs.org/og.png",
-//         width: 800,
-//         height: 600,
-//       },
-//       {
-//         url: "https://nextjs.org/og-alt.png",
-//         width: 1800,
-//         height: 1600,
-//         alt: "My custom alt",
-//       },
-//     ],
-//     locale: "en-US",
-//     type: "website",
-//   },
-//   robots: {
-//     index: false,
-//     follow: true,
-//     nocache: true,
-//     googleBot: {
-//       index: true,
-//       follow: false,
-//       noimageindex: true,
-//       "max-video-preview": -1,
-//       "max-image-preview": "large",
-//       "max-snippet": -1,
-//     },
-//   },
-//   icons: {
-//     icon: [
-//       { url: "/favicon/favicon-32x32.png" },
-//       new URL("/favicon/favicon-32x32.png", "https://example.com"),
-//     ],
-//     shortcut: ["/shortcut-icon.png"],
-//     apple: [
-//       { url: "/apple-icon.png" },
-//       {
-//         url: "/static/favicon/apple-icon-57x57.png",
-//         // sizes: "180x180",
-//         type: "image/png",
-//       },
-//     ],
-//     other: [
-//       {
-//         rel: "apple-touch-icon-precomposed",
-//         url: "/apple-touch-icon-precomposed.png",
-//       },
-//     ],
-//   },
-// };
-
 export default async function Home({ params: { lng } }) {
   const blogs = await getAllFilesFrontmatter("blog", lng);
   const featuredPosts = await getFeatured(blogs, ["react-query"]);
@@ -106,9 +40,9 @@ export default async function Home({ params: { lng } }) {
               <div className="mt-8 flex flex-wrap gap-4 md:!text-lg">
                 <div className="group relative">
                   <div className="absolute -inset-0.5 animate-tilt rounded blur bg-gradient-to-r from-primary-300 to-primary-400 dark:from-primary-200 dark:via-primary-300 opacity-75 transition duration-1000 group-hover:opacity-100 group-hover:duration-200" />
-                  {/* <ButtonLink href="/blog"> {t("hero.cta1")}</ButtonLink> */}
+                  <ButtonLink href="/blog"> {t("hero.cta1")}</ButtonLink>
                 </div>
-                {/* <ButtonLink href="/about">{t("hero.cta2")}</ButtonLink> */}
+                <ButtonLink href="/about">{t("hero.cta2")}</ButtonLink>
               </div>
               <div className="mt-4 flex flex-wrap gap-4 gap-y-2 md:mt-8">
                 <Link

@@ -64,7 +64,10 @@ export default function CloudinaryImg({
 
   return (
     <figure
-      className={"overflow-hidden rounded shadow dark:shadow-none"}
+      className={[
+        className,
+        "overflow-hidden rounded shadow dark:shadow-none",
+      ].join(" ")}
       style={{
         ...(mdx && width <= 800 ? { maxWidth: width } : {}),
         ...style,
@@ -81,7 +84,6 @@ export default function CloudinaryImg({
           cursor: preview ? "zoom-in" : "default",
         }}
         className="img-blur"
-        // onClick={preview ? () => setIsOpen(true) : undefined}
       >
         <div className="absolute top-0 left-0 ">
           <Image
@@ -93,9 +95,7 @@ export default function CloudinaryImg({
           />
         </div>
       </div>
-      {/* {isOpen && (
-        <Lightbox mainSrc={url} onCloseRequest={() => setIsOpen(false)} />
-      )} */}
     </figure>
   );
 }
+
