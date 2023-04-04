@@ -69,9 +69,17 @@ function SocialLinks() {
               );
             }}
           >
-            <button className="rounded-sm align-middle focus:outline-none focus-visible:ring focus-visible:ring-primary-300">
-              <FiMail className="h-7 w-7 align-middle text-gray-600 hover:text-primary-300 dark:text-gray-300 dark:hover:text-primary-300" />
-            </button>
+            <div className="">
+              <button
+                className="rounded-sm align-middle focus:outline-none focus-visible:ring focus-visible:ring-primary-300"
+                aria-labelledby="send-email-label"
+              >
+                <FiMail className="h-7 w-7 align-middle text-gray-600 hover:text-primary-300 dark:text-gray-300 dark:hover:text-primary-300" />
+              </button>
+              <span id="send-email-label" className="sr-only">
+                Copy to clipboard
+              </span>
+            </div>
           </CopyToClipboard>
         </TooltipTippy>
       </div>
@@ -159,3 +167,4 @@ const socials = [
     ),
   },
 ];
+
