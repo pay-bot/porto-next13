@@ -8,9 +8,12 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrism from "rehype-prism-plus";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
+import rehypePrettyCode from "rehype-pretty-code";
 import { Components } from "../app/components/ui/server/MDXRemote";
 
 import { ContentType, Frontmatter, PickFrontmatter } from "../app/types";
+
+const themePath = "./assets/themes/OneHunter-Vercel-color-theme.json";
 
 export const getFiles = (type: ContentType, locale: string): string[] => {
   return readdirSync(join(process.cwd(), "app", "contents", type, locale));
@@ -48,6 +51,26 @@ export async function getFileBySlug(
               },
             },
           ],
+          // [
+          //   // rehypePrettyCode,
+          //   // {
+          //   //   // theme: "github-dark",
+          //   //   theme: JSON.parse(readFileSync(themePath, "utf-8")),
+          //   //   onVisitLine(node: any) {
+          //   //     // Prevent lines from collapsing in `display: grid` mode, and allow empty
+          //   //     // lines to be copy/pasted
+          //   //     if (node.children.length === 0) {
+          //   //       node.children = [{ type: "text", value: " " }];
+          //   //     }
+          //   //   },
+          //   //   onVisitHighlightedLine(node: any) {
+          //   //     node.properties.className.push("line--highlighted");
+          //   //   },
+          //   //   onVisitHighlightedWord(node: any) {
+          //   //     node.properties.className = ["word--highlighted"];
+          //   //   },
+          //   // },
+          // ],
         ],
       },
     },
@@ -70,12 +93,12 @@ export async function getAllFilesFrontmatter<T extends ContentType>(
   locale: string
 ) {
   const files = readdirSync(
-    join(process.cwd(), "app", "contents", type, locale = 'en')
+    join(process.cwd(), "app", "contents", type, (locale = "en"))
   );
 
   return files.reduce((allPosts: Array<PickFrontmatter<T>>, postSlug) => {
     const source = readFileSync(
-      join(process.cwd(), "app", "contents", type, locale = 'en', postSlug),
+      join(process.cwd(), "app", "contents", type, (locale = "en"), postSlug),
       "utf8"
     );
     const { data } = matter(source);
@@ -135,3 +158,4 @@ export function getFeatured<T extends Frontmatter>(
     (feat) => contents.find((content) => content.slug === feat) as T
   );
 }
+
