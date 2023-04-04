@@ -16,6 +16,54 @@ type PostPageProps = {
   };
 };
 
+export const generateMetadata = async ({
+  params,
+}: {
+  params: PostPageProps;
+}): Promise<Metadata> => {
+  try {
+    const { frontmatter } = await getFileBySlug(
+      "blog",
+      params.blogSlug as string,
+      params.lng
+    );
+    return {
+      title: frontmatter?.title,
+      keywords: frontmatter?.tags?.split(",") || undefined,
+      description: frontmatter?.excerpt,
+      openGraph: {
+        type: "article",
+        locale: "zh_TW",
+        url: `https://chia1104.dev/posts/${params.slug}`,
+        siteName: "Chia",
+        title: frontmatter?.title,
+        description: frontmatter?.excerpt,
+        images: [
+          {
+            url: `/api/og?title=${encodeURIComponent(
+              frontmatter?.title ?? ""
+            )}`,
+            width: 1200,
+            height: 630,
+          },
+        ],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: "Chia",
+        description: frontmatter?.excerpt,
+        creator: "@chia1104",
+        images: [
+          `/api/og?title=${encodeURIComponent(frontmatter?.title ?? "")}`,
+        ],
+      },
+    };
+  } catch (error) {
+    console.error(error);
+    return {};
+  }
+};
+
 export default async function blog({
   params: { lng, blogSlug },
 }: PostPageProps) {
@@ -123,3 +171,4 @@ export async function generateStaticParams() {
     lng: locale,
   }));
 }
+
