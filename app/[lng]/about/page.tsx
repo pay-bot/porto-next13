@@ -46,7 +46,7 @@ export const metadata: Metadata = {
 };
 
 export default async function AboutPage({ params: { lng } }: AboutPageProps) {
-  const languages: string[] = ["en", "fr", "es"];
+  const languages: string[] = ["en", "id"];
   const fallbackLng: string = "en";
 
   if (languages.indexOf(lng) < 0) {
