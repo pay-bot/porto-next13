@@ -1,23 +1,22 @@
-export const Chia = {
+export const Alpian = {
   name: "Alpian" as const,
-  chineseName: "俞又嘉" as const,
   fullName: "Fahri Alpiansyah" as const,
-  title: "Full Stack Engineer" as const,
+  title: "Front-end Web Developer" as const,
   email: "afahri22@yahoo.com" as const,
   phone: "+62 8984629140" as const,
   content:
-    "I am Fahri Alpiansyah, a full-stack engineer with one year of experience in web development" as const,
+    "I am Fahri Alpiansyah, a front-end web developer with 2 year of experience in web development" as const,
   link: {
     github: "https://github.com/pay-bot",
     linkedin:
       "https://www.linkedin.com/in/%E5%8F%88%E5%98%89-%E4%BF%9E-889664230",
-    instagram: "https://www.instagram.com/chia_1104",
+    instagram: "https://www.instagram.com/alpian_1104",
     youtube_playlist:
       "https://www.youtube.com/playlist?list=PL7XkMe5ddX9Napk5747U6SIOAqWJBsqVM",
     google_photos: "https://photos.app.goo.gl/J1FobfgynJKW84Dm6",
   } as const,
   technologies: {},
-  location: "Taipei, Taiwan" as const,
+  location: "Depok, Indonesia" as const,
   bio: "Hello there" as const,
   company: "LeadBest" as const,
   resume: [

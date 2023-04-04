@@ -3,6 +3,34 @@ import BlogCard from "@/app/components/blog/BlogCard";
 import ContentPlaceholder from "@/app/components/content/ContentPlaceholder";
 import { getAllFilesFrontmatter } from "@/lib/mdx";
 import React from "react";
+import type { Metadata } from "next";
+import { Alpian } from "../../shared/meta/alpian";
+
+export const metadata: Metadata = {
+  title: "Blog",
+  openGraph: {
+    type: "article",
+    locale: "en",
+    url: "https://www.fahrialpiansyah.my.id/blog",
+    siteName: Alpian.name,
+    title: "Blog",
+    description: "Tutorials about front-end development.",
+    images: [
+      {
+        url: "/api/og?title=Blog",
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: Alpian.name,
+    description: "Tutorials about front-end development.",
+    creator: `@${Alpian.name.toLowerCase()}`,
+    images: ["/api/og?title=Blog"],
+  },
+};
 
 export default async function Blog({ params: { lng } }) {
   const blogs = await getAllFilesFrontmatter("blog", lng);
@@ -38,3 +66,4 @@ export default async function Blog({ params: { lng } }) {
     </main>
   );
 }
+

@@ -1,6 +1,6 @@
 import { MDXRemote as MDXR, type MDXRemoteProps } from "next-mdx-remote/rsc";
 import * as MDXComponents from "../MDXComponents";
-import { Link } from "@chia/ui";
+import { Link } from "@alpian/ui";
 import TechIcons from "@/app/components/TechIcons";
 
 const Components: typeof MDXComponents = {
@@ -17,3 +17,4 @@ const MDXRemote = (props: MDXRemoteProps) => (
 
 export default MDXRemote;
 export { Components };
+

@@ -6,7 +6,7 @@ import clsx from "clsx";
 import { languages } from "../i18n/settings";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
-import { Chia } from "../shared/meta/chia";
+import { Alpian } from "../shared/meta/alpian";
 
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));
@@ -21,28 +21,28 @@ const kaisei = localFont({
 
 export const metadata: Metadata = {
   title: {
-    default: `${Chia.name} | ${Chia.title}`,
-    template: `%s | ${Chia.name}`,
+    default: `${Alpian.name} | ${Alpian.title}`,
+    template: `%s | ${Alpian.name}`,
   },
-  description: Chia.content,
+  description: Alpian.content,
   keywords: [
     "Typescript",
     "FullStack",
     "NextJS",
     "React",
     "NestJS",
-    "Chia1104",
+    "Alpian1104",
   ],
   themeColor: "#2B2E4A",
   colorScheme: "dark",
-  creator: Chia.name,
+  creator: Alpian.name,
   openGraph: {
     type: "website",
     locale: "zh_TW",
-    url: "https://chia1104.dev",
-    siteName: Chia.name,
-    title: Chia.name,
-    description: Chia.content,
+    url: "https://alpian1104.dev",
+    siteName: Alpian.name,
+    title: Alpian.name,
+    description: Alpian.content,
     images: [
       {
         url: "/api/og",
@@ -71,9 +71,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: Chia.name,
-    description: Chia.content,
-    creator: `@${Chia.name.toLowerCase()}`,
+    title: Alpian.name,
+    description: Alpian.content,
+    creator: `@${Alpian.name.toLowerCase()}`,
     images: ["/api/og"],
   },
   viewport: {
@@ -111,3 +111,4 @@ export default function RootLayout({ children, params: { lng } }) {
     </html>
   );
 }
+

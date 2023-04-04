@@ -97,7 +97,7 @@ export default async function Home({ params: { lng } }) {
                 {t("hero.greet1")}
               </h2>
               <h1 className="mt-1 text-3xl md:text-4xl 2xl:text-5xl">
-                {t("hero.greet2")} <Accent>Alfian</Accent>
+                {t("hero.greet2")} <Accent>Alpian</Accent>
               </h1>
               <p className="mt-4 max-w-xl text-gray-700 dark:text-gray-200 md:mt-6 md:text-lg 2xl:text-xl">
                 {t("hero.p1")}
@@ -168,3 +168,4 @@ export default async function Home({ params: { lng } }) {
     </main>
   );
 }
+

@@ -3,6 +3,34 @@ import ContentPlaceholder from "@/app/components/content/ContentPlaceholder";
 import ProjectCard from "@/app/components/project/ProjectCard";
 import { getAllFilesFrontmatter } from "@/lib/mdx";
 import React from "react";
+import type { Metadata } from "next";
+import { Alpian } from "../../shared/meta/alpian";
+
+export const metadata: Metadata = {
+  title: "Projects",
+  openGraph: {
+    type: "article",
+    locale: "en",
+    url: "https://www.fahrialpiansyah.my.id/project",
+    siteName: Alpian.name,
+    title: "Projects",
+    description: "Showcase of my projects on front-end development that I'm proud of.",
+    images: [
+      {
+        url: "/api/og?title=Projects",
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: Alpian.name,
+    description: "Showcase of my projects on front-end development that I'm proud of.",
+    creator: `@${Alpian.name.toLowerCase()}`,
+    images: ["/api/og?title=Projects"],
+  },
+};
 
 export default async function Project({ params: { lng } }) {
   const projects = await getAllFilesFrontmatter("projects", lng);
@@ -14,7 +42,7 @@ export default async function Project({ params: { lng } }) {
             <Accent>Project </Accent>
           </h1>
           <p className="mt-2 text-gray-600 dark:text-gray-300" data-fade="1">
-            Tutorials about front-end development.
+            Showcase of my projects on front-end development that I'm proud of.
           </p>
 
           <ul
@@ -38,3 +66,5 @@ export default async function Project({ params: { lng } }) {
     </main>
   );
 }
+
+

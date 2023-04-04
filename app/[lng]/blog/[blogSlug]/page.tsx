@@ -34,8 +34,8 @@ export const generateMetadata = async ({
       openGraph: {
         type: "article",
         locale: "zh_TW",
-        url: `https://chia1104.dev/posts/${params.slug}`,
-        siteName: "Chia",
+        url: `https://alpian1104.dev/posts/${params.slug}`,
+        siteName: "Alpian",
         title: frontmatter?.title,
         description: frontmatter?.excerpt,
         images: [
@@ -50,9 +50,9 @@ export const generateMetadata = async ({
       },
       twitter: {
         card: "summary_large_image",
-        title: "Chia",
+        title: "Alpian",
         description: frontmatter?.excerpt,
-        creator: "@chia1104",
+        creator: "@alpian1104",
         images: [
           `/api/og?title=${encodeURIComponent(frontmatter?.title ?? "")}`,
         ],
@@ -82,7 +82,7 @@ export default async function blog({
       keywords: post?.tags?.join(","),
       author: {
         "@type": "Person",
-        name: "Chia1104",
+        name: "Alpian1104",
       },
     };
 

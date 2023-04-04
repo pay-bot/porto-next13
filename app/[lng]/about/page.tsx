@@ -4,13 +4,41 @@ import { languages, fallbackLng } from "../../i18n/settings";
 
 import Accent from "../../components/Accent";
 import TechStack from "../../components/TechStack";
+import type { Metadata } from "next";
+import { Alpian } from "../../shared/meta/alpian";
 // import TechStack from "@/components/TechStack";
 
 const info = [
-  { text: "Years experience", count: "04" },
+  { text: "Years experience", count: "05" },
   { text: "Completed Projects", count: "04" },
   { text: "Satisfied Clients", count: "03" },
 ];
+
+export const metadata: Metadata = {
+  title: "About",
+  openGraph: {
+    type: "profile",
+    locale: "en",
+    url: "https://www.fahrialpiansyah.my.id/about",
+    siteName: Alpian.name,
+    title: "About",
+    description: Alpian.content,
+    images: [
+      {
+        url: "/api/og?title=About",
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: Alpian.name,
+    description: Alpian.content,
+    creator: `@${Alpian.name.toLowerCase()}`,
+    images: ["/api/og?title=About"],
+  },
+};
 
 export default async function AboutPage({ params: { lng } }) {
   if (languages.indexOf(lng) < 0) lng = fallbackLng;
@@ -79,3 +107,4 @@ export default async function AboutPage({ params: { lng } }) {
     </main>
   );
 }
+
