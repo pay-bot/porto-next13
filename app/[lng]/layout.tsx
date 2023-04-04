@@ -76,11 +76,6 @@ export const metadata: Metadata = {
     creator: `@${Alpian.name.toLowerCase()}`,
     images: ["/api/og"],
   },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-  },
   verification: {
     google: "google",
     yandex: "yandex",

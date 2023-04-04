@@ -32,11 +32,11 @@ export type TechListType = keyof typeof techList;
 
 export type TechIconsProps = {
   techs: Array<TechListType>;
-} & React.ComponentPropsWithoutRef<"ul">;
+};
 
 export default function TechIcons({ className, techs }: TechIconsProps) {
   return (
-    <ul className={clsx(className, "flex gap-2")}>
+    <div className={clsx(className, "flex gap-2")}>
       {techs.map((tech) => {
         if (!techList[tech]) return;
 
@@ -44,13 +44,13 @@ export default function TechIcons({ className, techs }: TechIconsProps) {
 
         return (
           <Tooltip key={current.name} content={<p>{current.name}</p>}>
-            <li className="text-xl text-gray-700 dark:text-gray-200">
+            <div className="text-xl text-gray-700 dark:text-gray-200">
               <current.icon />
-            </li>
+            </div>
           </Tooltip>
         );
       })}
-    </ul>
+    </div>
   );
 }
 
@@ -132,3 +132,4 @@ const techList = {
     name: "Redux Toolkit",
   },
 };
+
