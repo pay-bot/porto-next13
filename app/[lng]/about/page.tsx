@@ -1,12 +1,17 @@
 import { useTranslation } from "@/app/i18n";
 import * as React from "react";
-import { languages, fallbackLng } from "../../i18n/settings";
 
 import Accent from "../../components/Accent";
 import TechStack from "../../components/TechStack";
 import type { Metadata } from "next";
 import { Alpian } from "../../shared/meta/alpian";
-// import TechStack from "@/components/TechStack";
+import Image from "next/image";
+
+interface AboutPageProps {
+  params: {
+    lng: string;
+  };
+}
 
 const info = [
   { text: "Years experience", count: "05" },
@@ -40,8 +45,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function AboutPage({ params: { lng } }) {
-  if (languages.indexOf(lng) < 0) lng = fallbackLng;
+export default async function AboutPage({ params: { lng } }: AboutPageProps) {
+  const languages: string[] = ["en", "fr", "es"];
+  const fallbackLng: string = "en";
+
+  if (languages.indexOf(lng) < 0) {
+    lng = fallbackLng;
+  }
   const { t } = await useTranslation(lng, "common");
 
   return (
@@ -53,20 +63,16 @@ export default async function AboutPage({ params: { lng } }) {
             <Accent>Fahri Alpiansyah</Accent>
           </h1>
           <div className="mt-4">
-            {/* <CloudinaryImg
-                className='float-right ml-6 w-36 md:w-72 object-cover'
-                publicId='fahri_vdiewu'
-                width='1345'
-                height='1511'
-                alt='Photo of me'
-                preview={false}
-              /> */}
-            <img
-              src="https://res.cloudinary.com/dkrci6hyh/image/upload/v1673617628/fahri_vdiewu.jpg"
-              alt=""
-              className="mx-auto h-80 w-72  object-cover object-top md:float-right md:ml-6 md:my-0 my-10"
-            />
-            <article className="prose dark:prose-invert">
+            <div className="mx-auto h-80 w-72  object-cover object-top md:float-right md:ml-6 md:my-0 my-10">
+              <Image
+                alt="alpian"
+                src="https://res.cloudinary.com/dkrci6hyh/image/upload/v1673617628/fahri_vdiewu.jpg"
+                width={300}
+                height={288}
+                priority
+              />
+            </div>
+            <article className="prose dark:prose-invert !mt-20">
               <p>{t("about.p1")}</p>
               <p>{t("about.p2")}</p>
               <p>{t("about.p3")}</p>
