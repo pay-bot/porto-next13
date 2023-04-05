@@ -137,10 +137,10 @@ export default async function blog({
                   ["Fahri"]?.length ? (
                     ["Fahri"].map((author) => (
                       <span
-                        key={author?._id}
+                        key={author}
                         className="after:content-[',_'] last-of-type:before:content-['and_'] last-of-type:after:content-none only-of-type:before:content-none"
                       >
-                        {author?.name}
+                        {author}
                       </span>
                     ))
                   ) : (

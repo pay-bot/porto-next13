@@ -6,6 +6,7 @@ import CloudinaryImg from "../../../components/images/CloudinaryImg";
 
 import CustomLink from "@/app/components/links/CustomLink";
 import { HiLink } from "react-icons/hi";
+import ProjectHeader from "@/app/components/ProjectHeader";
 
 type ProjectPageProps = {
   params: {
@@ -23,68 +24,31 @@ export default async function project({
       <main>
         <section className="">
           <div className="layout">
-            <CloudinaryImg
+            <ProjectHeader
+              authorName={
+                ["Fahri"]?.length ? (
+                  ["Fahri"].map((author) => (
+                    <span
+                      key={author}
+                      className="after:content-[',_'] last-of-type:before:content-['and_'] last-of-type:after:content-none only-of-type:before:content-none"
+                    >
+                      {author}
+                    </span>
+                  ))
+                ) : (
+                  <span />
+                )
+              }
+              coverImageAttributionLink={"/test"}
+              coverImageAttributionText={"/test"}
+              date={project.frontmatter.publishedAt}
+              title={project.frontmatter.title}
+              imgSrc={`/v1673511475/${project.frontmatter.banner}`}
+              imgAlt={`/v1673511475/${project.frontmatter.banner}`}
               publicId={`/v1673511475/${project.frontmatter.banner}`}
-              alt={project.frontmatter.title}
-              width={1440}
-              height={792}
+              readingTime={project.frontmatter.readingTime.text}
+              liveUrl={project.frontmatter.link}
             />
-
-            <h1 className="mt-4">{project.frontmatter.title}</h1>
-            <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
-              {project.frontmatter.description}
-            </p>
-
-            <div className="mt-2 flex flex-wrap items-center justify-start gap-3 text-sm font-medium text-gray-600 dark:text-gray-300">
-              {/* <div className='flex items-center gap-1'>
-                <HiOutlineEye className='inline-block text-base' />
-                {meta?.views?.toLocaleString() ?? '–––'} views
-              </div>
-              {(project.github ||
-                project.youtube ||
-                project.link) &&
-                ' - '}
-              {project.github && (
-                <div className='inline-flex items-center gap-2'>
-                  <SiGithub className='text-lg text-gray-800 dark:text-white' />
-                  <CustomLink
-                    onClick={() =>
-                      trackEvent(`Project Github: ${project.title}`, 'link')
-                    }
-                    href={project.github}
-                    className='mt-1'
-                  >
-                    Repository
-                  </CustomLink>
-                </div>
-              )}
-              {project.github &&
-                (project.youtube || project.link) &&
-                ' - '}
-              {project.youtube && (
-                <div className='inline-flex items-center gap-2'>
-                  <HiPlay className='text-xl text-gray-800 dark:text-white' />
-                  <CustomLink
-                    href={project.youtube}
-                    className='mt-1'
-                    onClick={() =>
-                      trackEvent(`Project Video: ${project.title}`, 'link')
-                    }
-                  >
-                    Demo Video
-                  </CustomLink>
-                </div>
-              )}
-              {project.youtube && project.link && ' - '} */}
-              {project.frontmatter.link && (
-                <div className="inline-flex items-center gap-2">
-                  <HiLink className="text-lg text-gray-800 dark:text-white" />
-                  <CustomLink href={project.frontmatter.link} className="mt-1">
-                    Open Live Site
-                  </CustomLink>
-                </div>
-              )}
-            </div>
 
             {project.frontmatter.category && (
               <p className="mt-2 flex items-center justify-start gap-2 text-sm text-gray-600 dark:text-gray-300">

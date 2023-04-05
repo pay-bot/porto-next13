@@ -3,14 +3,17 @@ import KommyImage from "./image";
 import KommyLink from "./a";
 import Container from "./container";
 import buildUrl from "cloudinary-build-url";
+import { HiLink } from "react-icons/hi";
+import CustomLink from "./links/CustomLink";
 // import { KommyLink, Container, KommyImage } from "components";
-interface IBlogHeader {
+interface IProjectHeader {
   title: string;
   date: string;
   readingTime: string;
   imgSrc: string;
   imgAlt: string;
-  publicId: string;
+  liveUrl: string;
+  // publicId: string;
   authorName: React.ReactNode;
   coverImageAttributionText: string;
   coverImageAttributionLink: string;
@@ -20,19 +23,18 @@ interface IBlogHeader {
   };
 }
 
-export default function BlogHeader({
+export default function ProjectHeader({
   title,
   authorName,
-  coverImageAttributionText,
-  coverImageAttributionLink,
   date,
   readingTime,
   imgSrc,
   imgAlt,
-  publicId,
+  // publicId,
   aspect,
-}: IBlogHeader) {
-  const url = buildUrl(publicId, {
+  liveUrl,
+}: IProjectHeader) {
+  const url = buildUrl(imgSrc, {
     cloud: {
       cloudName: "dkrci6hyh",
     },
@@ -55,7 +57,15 @@ export default function BlogHeader({
         </div>
         <h1 className="mb-4 text-5xl font-bold md:text-7xl">{title}</h1>
         <div className="flex flex-row justify-start text-lg md:text-xl">
-          <div className="font-medium">Written by: {authorName}</div>
+          <div className="font-medium">
+            Written by: {authorName}{" "}
+            <div className="inline-flex items-center gap-2">
+              <HiLink className="text-lg text-gray-800 dark:text-white" />
+              <CustomLink href={liveUrl} className="mt-1">
+                Open Live Site
+              </CustomLink>
+            </div>
+          </div>
         </div>
       </div>
       <KommyImage
@@ -73,4 +83,3 @@ export default function BlogHeader({
     </Container>
   );
 }
-
