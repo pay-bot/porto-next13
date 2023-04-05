@@ -78,6 +78,7 @@ export async function getFileBySlug(
   });
 
   return {
+    source,
     content,
     frontmatter: {
       wordCount: source.split(/\s+/gu).length,

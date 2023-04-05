@@ -102,7 +102,7 @@ export default async function project({
 
               <aside className="py-4">
                 <div className="sticky top-36">
-                  <TableOfContents slug={projectSlug} />
+                  <TableOfContents source={project.source} slug={projectSlug} />
                   {/* <div className='flex items-center justify-center py-8'>
                     <LikeButton slug={contentSlug} />
                   </div> */}
@@ -135,3 +135,4 @@ export async function generateStaticParams() {
     lng: locale,
   }));
 }
+

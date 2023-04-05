@@ -1,102 +1,156 @@
 "use client";
 
-import * as React from "react";
-import TOCLink from "../links/TOCLink";
+import { clsxm } from "../../../utils";
+import { Disclosure } from "@headlessui/react";
+import GithubSlugger from "github-slugger";
+import React, {
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+import { RiArrowDownSLine } from "react-icons/ri";
 
-export type HeadingScrollSpy = Array<{
-  id: string;
-  level: number;
-  text: string;
-}>;
+interface TOCProps {
+  source: string;
+}
 
-type TableOfContentsProps = {
-  toc?: HeadingScrollSpy;
-  activeSection: string | null;
-  slug: string | null;
-  minLevel: number;
-};
+const useIntersectionObserver = (
+  setActiveId: Dispatch<SetStateAction<string | undefined>>
+) => {
+  const headingElementsRef: any = useRef({});
 
-export default function TableOfContents({
-  slug,
-  // toc,
-  activeSection,
-  minLevel,
-}: TableOfContentsProps) {
-  //#region  //*=========== Scroll into view ===========
-  const lastPosition = React.useRef<number>(0);
+  useEffect(() => {
+    const callback = (headings: IntersectionObserverEntry[]) => {
+      headingElementsRef.current = headings.reduce(
+        (
+          map: { [x: string]: any },
+          headingElement: { target: { id: string | number } }
+        ) => {
+          map[headingElement.target.id] = headingElement;
 
-  const [toc, setToc] = React.useState<HeadingScrollSpy>();
+          return map;
+        },
+        headingElementsRef.current
+      );
 
-  React.useEffect(() => {
-    const headings = document.querySelectorAll(".mdx h1, .mdx h2, .mdx h3");
+      const visibleHeadings: any[] = [];
 
-    const headingArr: HeadingScrollSpy = [];
-    headings.forEach((heading) => {
-      const id = heading.id;
-      const level = +heading.tagName.replace("H", "");
-      const text = heading.textContent + "";
+      Object.keys(headingElementsRef.current).forEach((key) => {
+        const headingElement = headingElementsRef.current[key];
 
-      headingArr.push({ id, level, text });
+        if (headingElement.isIntersecting) visibleHeadings.push(headingElement);
+      });
+
+      const getIndexFromId = (id: string) =>
+        headingElements.findIndex((heading) => heading.id === id);
+
+      if (visibleHeadings.length === 1) {
+        setActiveId(visibleHeadings[0].target.id);
+      } else if (visibleHeadings.length > 1) {
+        const sortedVisibleHeadings = visibleHeadings.sort(
+          (a, b) => getIndexFromId(b.target.id) - getIndexFromId(a.target.id)
+        );
+
+        setActiveId(sortedVisibleHeadings[0].target.id);
+      }
+    };
+
+    const observer = new IntersectionObserver(callback, {
+      rootMargin: "0px 0px -70% 0px",
     });
 
-    setToc(headingArr);
-  }, [slug]);
+    const headingElements = Array.from(document.querySelectorAll("h2,h3,h4"));
 
-  React.useEffect(() => {
-    const container = document.getElementById("toc-container");
-    const activeLink = document.getElementById(`link-${activeSection}`);
+    headingElements.forEach((element) => observer.observe(element));
 
-    if (container && activeLink) {
-      // Get container properties
-      const cTop = container.scrollTop;
-      const cBottom = cTop + container.clientHeight;
+    return () => observer.disconnect();
+  }, [setActiveId]);
+};
 
-      // Get activeLink properties
-      const lTop = activeLink.offsetTop - container.offsetTop;
-      const lBottom = lTop + activeLink.clientHeight;
+const TableOfContents = ({ source }: TOCProps) => {
+  const headingLines = source
+    .split("\n")
+    .filter((line) => line.match(/^###*\s/));
 
-      // Check if in view
-      const isTotal = lTop >= cTop && lBottom <= cBottom;
+  const headings = headingLines.map((raw) => {
+    const text = raw.replace(/^###*\s/, "");
+    const level = raw.slice(0, 3) === "###" ? 3 : 2;
+    const slugger = new GithubSlugger();
 
-      const isScrollingUp = lastPosition.current > window.scrollY;
-      lastPosition.current = window.scrollY;
+    return {
+      text,
+      level,
+      id: slugger.slug(text),
+    };
+  });
 
-      if (!isTotal) {
-        // Scroll by the whole clientHeight
-        const offset = 25;
-        const top = isScrollingUp
-          ? lTop - container.clientHeight + offset
-          : lTop - offset;
+  const [activeId, setActiveId] = useState<string>();
 
-        container.scrollTo({ top, behavior: "smooth" });
-      }
-    }
-  }, [activeSection]);
-  //#endregion  //*======== Scroll into view ===========
+  useIntersectionObserver(setActiveId);
 
   return (
-    <div
-      id="toc-container"
-      className="hidden max-h-[calc(100vh-9rem-113px)] overflow-auto pb-4 lg:block"
-    >
-      <h3 className="text-gray-900 dark:text-gray-100 md:text-xl">
-        Table of Contents
-      </h3>
-      <div className="mt-4 flex flex-col space-y-2 text-sm">
-        {toc
-          ? toc.map(({ id, level, text }) => (
-              <TOCLink
-                tempLink={true}
-                id={id}
-                key={id}
-                activeSection={activeSection}
-                level={level}
-                minLevel={minLevel}
-                text={text}
-              />
-            ))
-          : null}
-      </div>
+    <div className="mt-4 mb-0 cursor-pointer lg:sticky lg:top-20 lg:border-b-2 lg:border-dark">
+      <Disclosure
+        as="div"
+        className="flex flex-col items-start justify-center"
+        defaultOpen={true}
+      >
+        {({ open }) => (
+          <>
+            <dt>
+              <button className="mb-4 flex flex-row flex-nowrap items-center justify-start text-base font-medium text-dark">
+                <span className="animated-underline font-bold capitalize tracking-wide">
+                  Contents:
+                </span>
+                <span className="ml-20 flex items-center md:ml-16">
+                  <RiArrowDownSLine
+                    className={clsxm(
+                      open ? "-rotate-180" : "rotate-0",
+                      "h-6 w-6 transform"
+                    )}
+                    aria-hidden="true"
+                  />
+                </span>
+              </button>
+            </dt>
+            <Disclosure.Panel
+              as="dd"
+              className="flex flex-col items-start justify-start"
+            >
+              {headings.map((heading, index) => {
+                return (
+                  <a
+                    key={index}
+                    href={`#${heading.id}`}
+                    className={clsxm(
+                      heading.id === activeId ? "font-bold" : "font-normal",
+                      heading.level === 2 ? "pl-2" : "pl-6",
+                      "mb-4 text-base text-slate-700 last:mb-6 hover:underline"
+                    )}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      document
+                        .querySelector<any>(`#${heading.id}`)
+                        .scrollIntoView({
+                          behavior: "smooth",
+                          block: "start",
+                          inline: "nearest",
+                        });
+                    }}
+                  >
+                    {heading.text}
+                  </a>
+                );
+              })}
+            </Disclosure.Panel>
+          </>
+        )}
+      </Disclosure>
     </div>
   );
-}
+};
+
+export default TableOfContents;
+

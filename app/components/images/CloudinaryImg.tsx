@@ -1,5 +1,6 @@
 // "use client";
 
+import { shimmer, toBase64 } from "@/utils";
 import { buildUrl } from "cloudinary-build-url";
 import Image from "next/image";
 
@@ -92,10 +93,15 @@ export default function CloudinaryImg({
             src={url}
             alt={alt}
             title={title || alt}
+            placeholder="blur"
+            blurDataURL={`data:image/svg+xml;base64,${toBase64(
+              shimmer(48, 48)
+            )}`}
           />
         </div>
       </div>
     </figure>
   );
 }
+
 

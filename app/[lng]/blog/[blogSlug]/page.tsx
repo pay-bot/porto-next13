@@ -137,7 +137,7 @@ export default async function blog({
                 </article>
                 <aside className="py-4">
                   <div className="sticky top-36">
-                    <TableOfContents slug={blogSlug} />
+                    <TableOfContents source={post.source} slug={blogSlug} />
                   </div>
                 </aside>
               </section>
