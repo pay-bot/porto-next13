@@ -8,6 +8,9 @@ import Accent from "../../../components/Accent";
 import { HiOutlineClock, HiOutlineEye } from "react-icons/hi";
 import { notFound } from "next/navigation";
 import CustomLink from "@/app/components/links/CustomLink";
+// import { BlogHeader } from "@/app/components";
+import { formatDate } from "@/utils";
+import BlogHeader from "../../../components/BlogHeader";
 
 type PostPageProps = {
   params: {
@@ -91,7 +94,7 @@ export default async function blog({
         <main>
           <section className="">
             <div className="layout">
-              <div className="pb-4 dark:border-gray-600">
+              {/* <div className="pb-4 dark:border-gray-600">
                 <CloudinaryImg
                   publicId={`/v1673511475/${post.frontmatter.banner}`}
                   alt={`Photo from unsplash: ${post.frontmatter.banner}`}
@@ -128,7 +131,31 @@ export default async function blog({
                     <Accent>{post.frontmatter.readingTime.text}</Accent>
                   </div>
                 </div>
-              </div>
+              </div> */}
+              <BlogHeader
+                authorName={
+                  ["Fahri"]?.length ? (
+                    ["Fahri"].map((author) => (
+                      <span
+                        key={author?._id}
+                        className="after:content-[',_'] last-of-type:before:content-['and_'] last-of-type:after:content-none only-of-type:before:content-none"
+                      >
+                        {author?.name}
+                      </span>
+                    ))
+                  ) : (
+                    <span />
+                  )
+                }
+                coverImageAttributionLink={"/test"}
+                coverImageAttributionText={"/test"}
+                date={post.frontmatter.publishedAt}
+                title={post.frontmatter.title}
+                imgSrc={`/v1673511475/${post.frontmatter.banner}`}
+                imgAlt={`/v1673511475/${post.frontmatter.banner}`}
+                publicId={`/v1673511475/${post.frontmatter.banner}`}
+                readingTime={post.frontmatter.readingTime.text}
+              />
 
               <hr className="dark:border-gray-600" />
               <section className="lg:grid lg:grid-cols-[auto,250px] lg:gap-8">
