@@ -1,12 +1,22 @@
 import { MDXRemote as MDXR, type MDXRemoteProps } from "next-mdx-remote/rsc";
-import * as MDXComponents from "../MDXComponents";
-import { Link } from "@alpian/ui";
 import TechIcons from "@/app/components/TechIcons";
 import CodeTitle from "../MDXComponents/code-title";
+import { clsxm } from "@/utils";
+import Pre from "@/app/components/pre";
 
-const Components: typeof MDXComponents = {
+const Components = {
   TechIcons: (props) => <TechIcons {...props} />,
   CodeTitle: (props) => <CodeTitle {...props} />,
+  code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
+    <code
+      className={clsxm(
+        "relative rounded border bg-gray-300 bg-opacity-25 py-[0.2rem] px-[0.3rem] font-mono text-base text-gray-600",
+        className
+      )}
+      {...props}
+    />
+  ),
+  pre: Pre,
 };
 
 const MDXRemote = (props: MDXRemoteProps) => (
@@ -19,4 +29,5 @@ const MDXRemote = (props: MDXRemoteProps) => (
 
 export default MDXRemote;
 export { Components };
+
 

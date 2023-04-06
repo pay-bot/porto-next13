@@ -57,19 +57,14 @@ export default async function project({
               </p>
             )}
 
-            <hr className="mt-4 dark:border-gray-600" />
-
             <section className="lg:grid lg:grid-cols-[auto,250px] lg:gap-8">
-              <article className="mdx projects prose mx-auto w-full transition-colors dark:prose-invert">
+              <article className="mdx projects prose mx-auto w-full transition-colors dark:prose-invert max-w-none">
                 {project?.content}
               </article>
 
               <aside className="py-4">
                 <div className="sticky top-36">
                   <TableOfContents source={project.source} slug={projectSlug} />
-                  {/* <div className='flex items-center justify-center py-8'>
-                    <LikeButton slug={contentSlug} />
-                  </div> */}
                 </div>
               </aside>
             </section>
