@@ -9,7 +9,6 @@ import type { Metadata } from "next";
 import { IoNewspaperSharp } from "react-icons/io5";
 import { SiGithub } from "@icons-pack/react-simple-icons";
 import ButtonLink from "../components/links/ButtonLink";
-import H1Heading from "../components/H1Heading";
 
 export default async function Home({ params: { lng } }) {
   const blogs = await getAllFilesFrontmatter("blog", lng);
@@ -28,13 +27,12 @@ export default async function Home({ params: { lng } }) {
         <article className="layout">
           <div className="flex flex-col items-center gap-y-20 lg:grid-cols-2 lg:flex-row lg:justify-between lg:gap-y-0">
             <div className="w-full lg:w-6/12">
-              {/* <h1 className="mt-1 text-3xl md:text-4xl 2xl:text-5xl">
+              <h2 className="text-2xl md:text-4xl 2xl:text-5xl animate-in slide-in-from-left duration-700">
+                {t("hero.greet1")}
+              </h2>
+              <h1 className="mt-1 text-3xl md:text-5xl 2xl:text-6xl animate-in slide-in-from-left duration-500">
                 {t("hero.greet2")} <Accent>Alpian</Accent>
-              </h1> */}
-
-              <H1Heading className="mb-4 animate-in slide-in-from-left duration-500">
-                {t("hero.greet2")} <Accent>Alpian</Accent>
-              </H1Heading>
+              </h1>
 
               <p className="mt-4 max-w-xl text-gray-700 dark:text-gray-200 md:mt-6 md:text-lg 2xl:text-xl">
                 {t("hero.p1")}
@@ -105,4 +103,5 @@ export default async function Home({ params: { lng } }) {
     </main>
   );
 }
+
 

@@ -76,9 +76,10 @@
   },
   "about": {
     "title": "Something bad just happened...",
-    "p1": "Petualangan saya dimulai dengan passion saya terhadap komputer. Saya memiliki kemampuan yang kuat dalam menyelesaikan masalah hardware dan software sejak sekolah menengah.",
-    "p2": "Hobby ini akhirnya membawa saya untuk mendapatkan gelar sarjana komputer, setelah memiliki pengetahuan yang cukup tentang programming, saya memutuskan untuk focus di bidang web developement",
-    "p3": "Pada akhirnya saya mendapatkan kesempatan untuk bergabung dengan sebuah perusahaan Software House sebagai Frontend developer."
+    "p1": "Technology and computers have always fascinated me. I find myself constantly exploring new advancements in the field and seeking out opportunities to learn more. As a programmer, I am particularly drawn to coding and building new things from scratch. The process of turning lines of code into a tangible product never ceases to amaze me.",
+    "p2": "My passion for technology has led me to pursue a career in the field. I am determined to make a meaningful impact by leveraging my skills to develop innovative solutions that make a positive difference in people's lives. My enthusiasm for the subject drives me to stay up-to-date with the latest trends and advancements in the industry.",
+    "p3": "Through my work and personal projects, I have come to appreciate the power and creativity that technology offers. It allows us to solve complex problems, automate mundane tasks, and connect people from all around the world. I find joy in problem-solving and using my coding skills to develop practical solutions that benefit society.",
+    "p4": "I am grateful for the opportunities that technology has provided me and the community at large. It has enabled me to explore new ideas, connect with like-minded individuals, and create amazing things. I am excited about the future of technology and am determined to make a meaningful contribution to its advancement."
   },
   "hero": {
     "greet1": "Hai!",
@@ -88,3 +89,4 @@
     "p1": "Saya sangat tertarik dengan teknologi dan komputer. Saya merasa senang ketika membuat kode dan belajar cara membangun hal-hal baru. Dengan semangat ini, saya memutuskan untuk mengejar karier di bidang ini."
   }
 }
+

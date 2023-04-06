@@ -63,20 +63,15 @@ export default async function AboutPage({ params: { lng } }: AboutPageProps) {
             <Accent>Fahri Alpiansyah</Accent>
           </h1>
           <div className="mt-4">
-            <div className="mx-auto h-80 w-72  object-cover object-top md:float-right md:ml-6 md:my-0 my-10">
-              <Image
-                alt="alpian"
-                src="https://res.cloudinary.com/dkrci6hyh/image/upload/v1673617628/fahri_vdiewu.jpg"
-                width={300}
-                height={288}
-                priority
-              />
+            <div className="flex justify-between">
+              <article className="prose dark:prose-invert !mt-20 max-w-none w-7/12">
+                <p>{t("about.p1")}</p>
+                <p>{t("about.p2")}</p>
+                <p>{t("about.p3")}</p>
+                <p>{t("about.p4")}</p>
+              </article>
+              <div className="w-5/12 flex justify-end">Marble </div>
             </div>
-            <article className="prose dark:prose-invert !mt-20">
-              <p>{t("about.p1")}</p>
-              <p>{t("about.p2")}</p>
-              <p>{t("about.p3")}</p>
-            </article>
 
             <div className="mt-10 flex items-center gap-7">
               {info.map((content) => (
