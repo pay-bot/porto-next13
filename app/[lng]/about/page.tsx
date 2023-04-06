@@ -5,7 +5,6 @@ import Accent from "../../components/Accent";
 import TechStack from "../../components/TechStack";
 import type { Metadata } from "next";
 import { Alpian } from "../../shared/meta/alpian";
-import Image from "next/image";
 import Container from "@/app/components/Container";
 import H1Heading from "@/app/components/H1Heading";
 
@@ -108,4 +107,3 @@ export default async function AboutPage({ params: { lng } }: AboutPageProps) {
     </Container>
   );
 }
-
