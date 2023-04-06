@@ -58,7 +58,7 @@ export default function ProjectHeader({
         <h1 className="mb-4 text-5xl font-bold md:text-7xl">{title}</h1>
         <div className="flex flex-row justify-start text-lg md:text-xl">
           <div className="font-medium">
-            Written by: {authorName}{" "}
+            {/* Written by: {authorName}{" "} */}
             <div className="inline-flex items-center gap-2">
               <HiLink className="text-lg text-gray-800 dark:text-white" />
               <CustomLink href={liveUrl} className="mt-1">
