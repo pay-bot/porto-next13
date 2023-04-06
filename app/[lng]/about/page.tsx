@@ -5,8 +5,9 @@ import Accent from "../../components/Accent";
 import TechStack from "../../components/TechStack";
 import type { Metadata } from "next";
 import { Alpian } from "../../shared/meta/alpian";
-import Container from "@/app/components/Container";
+// import Container from "@/app/components/Container";
 import H1Heading from "@/app/components/H1Heading";
+import Container from "@/app/components/Container";
 
 interface AboutPageProps {
   params: {
