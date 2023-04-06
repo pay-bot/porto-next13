@@ -82,9 +82,10 @@
   },
   "hero": {
     "greet1": "Hi!",
-    "greet2": "You can call me",
+    "greet2": "Hey, I'm",
     "cta1": "Read the blog",
     "cta2": "Learn more about me",
     "p1": "I am passionate about technology and computers. I enjoy coding and learning how to build new things. With this passion, I have determinedly chosen to pursue a career in this field."
   }
 }
+

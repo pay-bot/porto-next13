@@ -7,7 +7,7 @@ export { default as CodeTitle } from "./code-title";
 export { default as Container } from "./container";
 export { default as Footer } from "./footer";
 export { default as Header } from "./header";
-export { default as H1Heading } from "./h1";
+// export { default as H1Heading } from "./H1Heading";
 export { default as Icons } from "./icons";
 export { default as KommyImage } from "./image";
 export { default as Skeleton } from "./skeleton";
