@@ -4,7 +4,7 @@ export { default as AboutSection } from "./about-section";
 export { default as BlogSection } from "./blog-section";
 export { default as Callout } from "./callout";
 export { default as CodeTitle } from "./code-title";
-export { default as Container } from "./container";
+// export { default as Container } from "./container";
 export { default as Footer } from "./footer";
 export { default as Header } from "./header";
 // export { default as H1Heading } from "./H1Heading";

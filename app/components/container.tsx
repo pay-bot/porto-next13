@@ -17,7 +17,7 @@ export default function Container({
   return (
     <Container
       className={clsxm(
-        "mx-auto",
+        "mx-auto px-4",
         fullSize ? "max-w-full px-0" : "max-w-6xl",
         className
       )}

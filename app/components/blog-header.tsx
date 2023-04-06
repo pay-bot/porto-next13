@@ -1,7 +1,7 @@
 import { shimmer, toBase64 } from "utils";
 import KommyImage from "./image";
 import KommyLink from "./a";
-import Container from "./container";
+import Container from "./Container";
 // import { KommyLink, Container, KommyImage } from "components";
 interface IBlogHeader {
   title: string;

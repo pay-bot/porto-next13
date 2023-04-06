@@ -1,7 +1,7 @@
 import { shimmer, toBase64 } from "utils";
 import KommyImage from "./image";
 import KommyLink from "./a";
-import Container from "./container";
+import Container from "./Container";
 import buildUrl from "cloudinary-build-url";
 import { HiLink } from "react-icons/hi";
 import CustomLink from "./links/CustomLink";

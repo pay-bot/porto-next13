@@ -9,6 +9,8 @@ import type { Metadata } from "next";
 import { IoNewspaperSharp } from "react-icons/io5";
 import { SiGithub } from "@icons-pack/react-simple-icons";
 import ButtonLink from "../components/links/ButtonLink";
+import Container from "../components/Container";
+import H1Heading from "../components/H1Heading";
 
 export default async function Home({ params: { lng } }) {
   const blogs = await getAllFilesFrontmatter("blog", lng);
@@ -22,51 +24,44 @@ export default async function Home({ params: { lng } }) {
   const { t } = await useTranslation(lng, "common");
 
   return (
-    <main className="">
-      <section className="mt-20 flex h-full min-h-[calc(100vh-100px)] flex-col justify-center lg:mt-0">
-        <article className="layout">
-          <div className="flex flex-col items-center gap-y-20 lg:grid-cols-2 lg:flex-row lg:justify-between lg:gap-y-0">
-            <div className="w-full lg:w-6/12">
-              <h2 className="text-2xl md:text-4xl 2xl:text-5xl animate-in slide-in-from-left duration-700">
-                {t("hero.greet1")}
-              </h2>
-              <h1 className="mt-1 text-3xl md:text-5xl 2xl:text-6xl animate-in slide-in-from-left duration-500">
-                {t("hero.greet2")} <Accent>Alpian</Accent>
-              </h1>
-
-              <p className="mt-4 max-w-xl text-gray-700 dark:text-gray-200 md:mt-6 md:text-lg 2xl:text-xl">
+    <Container as="section" className="py-12 ">
+      <article className="">
+        <div className="flex flex-col items-center gap-y-20 lg:grid-cols-2 lg:flex-row lg:justify-between lg:gap-y-0">
+          <div className="w-full ">
+            <div className="py-24 md:pt-32 md:pb-24">
+              <H1Heading className="animate-in slide-in-from-left duration-500">
                 {t("hero.p1")}
-              </p>
-
-              <div className="mt-8 flex flex-wrap gap-4 md:!text-lg">
-                <div className="group relative">
-                  <div className="absolute -inset-0.5 animate-tilt rounded blur bg-gradient-to-r from-primary-300 to-primary-400 dark:from-primary-200 dark:via-primary-300 opacity-75 transition duration-1000 group-hover:opacity-100 group-hover:duration-200" />
-                  <ButtonLink href="/blog"> {t("hero.cta1")}</ButtonLink>
-                </div>
-                <ButtonLink href="/about">{t("hero.cta2")}</ButtonLink>
-              </div>
-              <div className="mt-4 flex flex-wrap gap-4 gap-y-2 md:mt-8">
-                <Link
-                  href="https://drive.google.com/file/d/12PE3fknn3DTGdVNYYv55bgJh7g6T81u6/view?usp=sharing"
-                  className="inline-flex items-center gap-1 text-sm font-medium md:text-base text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-primary-300 transition-colors"
-                >
-                  <IoNewspaperSharp className="shrink-0" />
-                  <span>Resume</span>
-                </Link>
-
-                <Link
-                  href="https://github.com/pay-bot"
-                  className="inline-flex items-center gap-1 text-sm font-medium md:text-base text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-primary-300 transition-colors"
-                >
-                  <SiGithub className="shrink-0" />
-                  <span>github.com/pay-bot</span>
-                </Link>
-              </div>
+              </H1Heading>
             </div>
-            <div className=" overflow-hidden">{/* <MarbleGuest /> */}</div>
+
+            {/* <div className="mt-8 flex flex-wrap gap-4 md:!text-lg">
+              <div className="group relative">
+                <div className="absolute -inset-0.5 animate-tilt rounded blur bg-gradient-to-r from-primary-300 to-primary-400 dark:from-primary-200 dark:via-primary-300 opacity-75 transition duration-1000 group-hover:opacity-100 group-hover:duration-200" />
+                <ButtonLink href="/blog"> {t("hero.cta1")}</ButtonLink>
+              </div>
+              <ButtonLink href="/about">{t("hero.cta2")}</ButtonLink>
+            </div>
+            <div className="mt-4 flex flex-wrap gap-4 gap-y-2 md:mt-8">
+              <Link
+                href="https://drive.google.com/file/d/12PE3fknn3DTGdVNYYv55bgJh7g6T81u6/view?usp=sharing"
+                className="inline-flex items-center gap-1 text-sm font-medium md:text-base text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-primary-300 transition-colors"
+              >
+                <IoNewspaperSharp className="shrink-0" />
+                <span>Resume</span>
+              </Link>
+
+              <Link
+                href="https://github.com/pay-bot"
+                className="inline-flex items-center gap-1 text-sm font-medium md:text-base text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-primary-300 transition-colors"
+              >
+                <SiGithub className="shrink-0" />
+                <span>github.com/pay-bot</span>
+              </Link>
+            </div> */}
           </div>
-        </article>
-      </section>
+          <div className=" overflow-hidden">{/* <MarbleGuest /> */}</div>
+        </div>
+      </article>
       <section className="py-20">
         <article className="layout">
           <h2 className="text-2xl md:text-4xl" id="blog">
@@ -100,8 +95,7 @@ export default async function Home({ params: { lng } }) {
           </ButtonLink>
         </article>
       </section>
-    </main>
+    </Container>
   );
 }
-
 

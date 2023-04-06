@@ -1,7 +1,7 @@
 import { shimmer, toBase64 } from "utils";
 import KommyImage from "./image";
 import KommyLink from "./a";
-import Container from "./container";
+import Container from "./Container";
 import buildUrl from "cloudinary-build-url";
 // import { KommyLink, Container, KommyImage } from "components";
 interface IBlogHeader {
