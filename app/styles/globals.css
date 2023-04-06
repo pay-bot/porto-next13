@@ -2,6 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    @apply h-full selection:bg-[#FF8C35] selection:text-dark;
+  }
+  .h0 {
+    @apply text-4xl font-bold tracking-wide md:text-6xl;
+  }
+  h1,
+  .h1 {
+    @apply text-3xl font-bold md:text-4xl;
+  }
+
+  h2,
+  .h2 {
+    @apply mt-6 scroll-mt-20 text-2xl font-bold md:text-4xl;
+  }
+
+  h3,
+  .h3 {
+    @apply mt-6 scroll-mt-20 text-xl font-bold md:text-2xl;
+  }
+
+  h4,
+  .h4 {
+    @apply mt-6 scroll-mt-20 text-lg font-bold leading-6 md:text-xl;
+  }
+}
+
 @layer components {
   .c-container {
     @apply container mx-auto;

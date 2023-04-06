@@ -6,6 +6,8 @@ import TechStack from "../../components/TechStack";
 import type { Metadata } from "next";
 import { Alpian } from "../../shared/meta/alpian";
 import Image from "next/image";
+import Container from "@/app/components/Container";
+import H1Heading from "@/app/components/H1Heading";
 
 interface AboutPageProps {
   params: {
@@ -55,43 +57,41 @@ export default async function AboutPage({ params: { lng } }: AboutPageProps) {
   const { t } = await useTranslation(lng, "common");
 
   return (
-    <main>
-      <section className={"fade-in-start"}>
-        <div className="layout min-h-main py-20">
-          <h2>About</h2>
-          <h1 className="mt-1">
-            <Accent>Fahri Alpiansyah</Accent>
-          </h1>
-          <div className="mt-4">
-            <div className="flex justify-between">
-              <article className="prose dark:prose-invert !mt-20 max-w-none w-7/12">
-                <p>{t("about.p1")}</p>
-                <p>{t("about.p2")}</p>
-                <p>{t("about.p3")}</p>
-                <p>{t("about.p4")}</p>
-              </article>
-              <div className="w-5/12 flex justify-end">Marble </div>
-            </div>
-
-            <div className="mt-10 flex items-center gap-7">
-              {info.map((content) => (
-                <div key={content.text}>
-                  <h3 className="text-2xl font-semibold  md:text-4xl">
-                    {content.count}
-                    <span className="text-cyan-600">+</span>{" "}
-                  </h3>
-                  <span className="text-xs md:text-base">{content.text}</span>
-                </div>
-              ))}
-            </div>
-
-            <h3 className="mt-12">Current Favorite Tech Stack</h3>
-            <figure className="mt-2">
-              <TechStack />
-            </figure>
-          </div>
+    <Container as="section" className="py-24">
+      <H1Heading className="mb-4 animate-in slide-in-from-left duration-500">
+        Hey, I'm <Accent>Alpian.</Accent>
+      </H1Heading>
+      <h2 className="h0 font-bold animate-in slide-in-from-right duration-500">
+        Nice to meet you 🤝🏾
+      </h2>
+      <div className="mt-4">
+        <div className="flex justify-between">
+          <article className="prose dark:prose-invert !mt-20 max-w-none w-7/12">
+            <p>{t("about.p1")}</p>
+            <p>{t("about.p2")}</p>
+            <p>{t("about.p3")}</p>
+            <p>{t("about.p4")}</p>
+          </article>
+          <div className="w-5/12 flex justify-end">Marble </div>
         </div>
-      </section>
+
+        <div className="mt-10 flex items-center gap-7">
+          {info.map((content) => (
+            <div key={content.text}>
+              <h3 className="text-2xl font-semibold  md:text-4xl">
+                {content.count}
+                <span className="text-cyan-600">+</span>{" "}
+              </h3>
+              <span className="text-xs md:text-base">{content.text}</span>
+            </div>
+          ))}
+        </div>
+
+        <h3 className="mt-12">Current Favorite Tech Stack</h3>
+        <figure className="mt-2">
+          <TechStack />
+        </figure>
+      </div>
 
       <section>
         <div className="layout py-6">
@@ -105,7 +105,7 @@ export default async function AboutPage({ params: { lng } }: AboutPageProps) {
           </article>
         </div>
       </section>
-    </main>
+    </Container>
   );
 }
 
