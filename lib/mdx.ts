@@ -62,14 +62,14 @@ export async function getFileBySlug(
               },
             },
           ],
-          [
-            rehypeAutolinkHeadings,
-            {
-              properties: {
-                className: ["hash-anchor"],
-              },
-            },
-          ],
+          // [
+          //   rehypeAutolinkHeadings,
+          //   {
+          //     properties: {
+          //       className: ["hash-anchor"],
+          //     },
+          //   },
+          // ],
         ],
       },
     },
