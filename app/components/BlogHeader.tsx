@@ -59,10 +59,10 @@ export default function BlogHeader({
         </div>
       </div>
       <KommyImage
-        src={url}
+        src={imgSrc}
         width={1200}
         height={630}
-        alt={url}
+        alt={imgSrc}
         className="my-8 h-[280px] w-full rounded-md border border-gray-300 object-cover object-center animate-in fade-in duration-500 md:h-[500px]"
         placeholder="blur"
         blurDataURL={`data:image/svg+xml;base64,${toBase64(

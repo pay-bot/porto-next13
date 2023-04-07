@@ -1,5 +1,6 @@
 "use client";
 
+import buildUrl from "cloudinary-build-url";
 import { clsxm } from "../../utils";
 import Image, { ImageProps } from "next/image";
 
@@ -18,13 +19,27 @@ export default function KommyImage({
   width,
   height,
   captionClassName,
+  aspect,
   ...rest
 }: IKommyImage) {
+  const url = buildUrl(src, {
+    cloud: {
+      cloudName: "dkrci6hyh",
+    },
+    transformations: {
+      rawTransformation: aspect
+        ? `c_fill,ar_${aspect.width}:${aspect.height},w_${width}`
+        : undefined,
+    },
+  });
+
+  const aspectRatio = aspect ? aspect.height / aspect.width : undefined;
+
   if (blogImage) {
     return (
       <figure className="mx-auto my-8 h-auto w-auto max-w-3xl overflow-clip rounded-md">
         <Image
-          src={src}
+          src={url}
           alt={alt}
           width={width}
           height={height}
@@ -47,7 +62,7 @@ export default function KommyImage({
   return (
     <Image
       className={clsxm("object-cover object-center", className)}
-      src={src}
+      src={url}
       alt={alt}
       width={width}
       height={height}

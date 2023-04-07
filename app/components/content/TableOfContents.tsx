@@ -100,7 +100,7 @@ const TableOfContents = ({ source }: TOCProps) => {
         {({ open }) => (
           <>
             <dt>
-              <button className="mb-4 flex flex-row flex-nowrap items-center justify-start text-base font-medium text-dark">
+              <button className="mb-4 flex flex-row flex-nowrap items-center justify-start text-base font-medium ">
                 <span className="animated-underline font-bold capitalize tracking-wide">
                   Contents:
                 </span>
@@ -127,7 +127,7 @@ const TableOfContents = ({ source }: TOCProps) => {
                     className={clsxm(
                       heading.id === activeId ? "font-bold" : "font-normal",
                       heading.level === 2 ? "pl-2" : "pl-6",
-                      "mb-4 text-base text-slate-700 last:mb-6 hover:underline"
+                      "mb-4 text-base  last:mb-6 hover:underline"
                     )}
                     onClick={(e) => {
                       e.preventDefault();

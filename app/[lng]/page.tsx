@@ -11,6 +11,8 @@ import { SiGithub } from "@icons-pack/react-simple-icons";
 import ButtonLink from "../components/links/ButtonLink";
 import Container from "../components/Container";
 import H1Heading from "../components/H1Heading";
+import BlogSection from "../components/BlogSection";
+import ProjectSection from "../components/ProjectSection";
 
 export default async function Home({ params: { lng } }) {
   const blogs = await getAllFilesFrontmatter("blog", lng);
@@ -63,15 +65,16 @@ export default async function Home({ params: { lng } }) {
         </div>
       </article>
       <section className="py-20">
-        <article className="layout">
+        <article className="">
           <h2 className="text-2xl md:text-4xl" id="blog">
             <Accent>Featured Posts</Accent>
           </h2>
-          <ul className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-            {featuredPosts?.map((post) => (
+
+          {/* {featuredPosts?.map((post) => (
               <BlogCard key={post.slug} post={post} />
-            ))}
-          </ul>
+            ))} */}
+
+          <BlogSection posts={featuredPosts} />
           <ButtonLink className="mt-4" href="/blog">
             See more post
           </ButtonLink>
@@ -85,11 +88,9 @@ export default async function Home({ params: { lng } }) {
           <p className="mt-2 text-gray-600 dark:text-gray-300">
             Some projects that I'm proud of
           </p>
-          <ul className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-            {featuredProjects?.map((project) => (
-              <ProjectCard key={project.slug} project={project} />
-            ))}
-          </ul>
+
+          <ProjectSection projects={featuredProjects} />
+
           <ButtonLink className="mt-4" href="/projects">
             See more project
           </ButtonLink>
@@ -98,4 +99,3 @@ export default async function Home({ params: { lng } }) {
     </Container>
   );
 }
-
