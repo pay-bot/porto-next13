@@ -64,37 +64,32 @@ export default async function AboutPage({ params: { lng } }: AboutPageProps) {
       <h2 className="h0 font-bold animate-in slide-in-from-right duration-500">
         Nice to meet you 🤝🏾
       </h2>
-      <div className="mt-4">
-        <div className="flex justify-between">
-          <article className="prose dark:prose-invert !mt-20 max-w-none w-7/12">
-            <p>{t("about.p1")}</p>
-            <p>{t("about.p2")}</p>
-            <p>{t("about.p3")}</p>
-            <p>{t("about.p4")}</p>
-          </article>
-          <div className="w-5/12 flex justify-end">Marble </div>
-        </div>
-
-        <div className="mt-10 flex items-center gap-7">
-          {info.map((content) => (
-            <div key={content.text}>
-              <h3 className="text-2xl font-semibold  md:text-4xl">
-                {content.count}
-                <span className="text-cyan-600">+</span>{" "}
-              </h3>
-              <span className="text-xs md:text-base">{content.text}</span>
-            </div>
-          ))}
-        </div>
-
-        <h3 className="mt-12">Current Favorite Tech Stack</h3>
-        <figure className="mt-2">
-          <TechStack />
-        </figure>
+      <div className="prose prose-lg mt-16 max-w-prose animate-in slide-in-from-bottom duration-500 md:prose-2xl dark:prose-invert">
+        <p>{t("about.p1")}</p>
+        <p>{t("about.p2")}</p>
+        <p>{t("about.p3")}</p>
+        <p>{t("about.p4")}</p>
       </div>
 
+      <div className="mt-10 flex items-center gap-7">
+        {info.map((content) => (
+          <div key={content.text}>
+            <h3 className="text-2xl font-semibold  md:text-4xl">
+              {content.count}
+              <span className="text-cyan-600">+</span>{" "}
+            </h3>
+            <span className="text-xs md:text-base">{content.text}</span>
+          </div>
+        ))}
+      </div>
+
+      <h3 className="mt-12">Current Favorite Tech Stack</h3>
+      <figure className="mt-2">
+        <TechStack />
+      </figure>
+
       <section>
-        <div className="layout py-6">
+        <div className=" py-6">
           <h2>Contact</h2>
           <article className="prose mt-4 dark:prose-invert">
             <p>
