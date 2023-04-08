@@ -16,8 +16,7 @@ export const metadata: Metadata = {
     url: "https://www.fahrialpiansyah.my.id/project",
     siteName: Alpian.name,
     title: "Projects",
-    description:
-      "Showcase of my projects on front-end development that I'm proud of.",
+    description: "Showcase of my projects on front-end development",
     images: [
       {
         url: "/api/og?title=Projects",
@@ -29,8 +28,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: Alpian.name,
-    description:
-      "Showcase of my projects on front-end development that I'm proud of.",
+    description: "Showcase of my projects on front-end development",
     creator: `@${Alpian.name.toLowerCase()}`,
     images: ["/api/og?title=Projects"],
   },
@@ -45,7 +43,7 @@ export default async function Project({ params: { lng } }) {
           <Accent>Project</Accent>
         </h1>
         <p className="mt-2 text-gray-600 dark:text-gray-300" data-fade="1">
-          Showcase of my projects on front-end development that I'm proud of.
+          Showcase of my projects on front-end development
         </p>
         <div className="mt-10 mb-24 max-w-3xl animate-in slide-in-from-right duration-500">
           <ProjectSection projects={projects} />

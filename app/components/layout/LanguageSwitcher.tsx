@@ -18,7 +18,7 @@ export default function LanguageSwitcher({ lang }) {
     if (!pathname) return "/";
     if (pathname.includes("id")) {
       segments[1] = locale;
-    } else segments[1] = locale;
+    } else segments[0] = locale;
     return segments.join("/");
   };
 
