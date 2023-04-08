@@ -23,7 +23,6 @@ function checkIfTextIsInArray(text: string, array: string[]): boolean {
 export default function Header({ large = false, lang }: HeaderProps) {
   const pathname = usePathname();
   const segments = pathname.split("/");
-  console.log("🚀 ~ file: Header.tsx:20 ~ Header ~ segments:", segments);
 
   return (
     <header className="">
@@ -35,7 +34,7 @@ export default function Header({ large = false, lang }: HeaderProps) {
             {links.map(({ href, label }) => (
               <li key={`${href}${label}`}>
                 <Link
-                  href={`/${href}`}
+                  href={segments[1] === "id" ? `/id/${href}` : href}
                   className={clsxm(
                     "rounded-sm py-2 transition-colors",
                     "font-medium text-black dark:text-white",
