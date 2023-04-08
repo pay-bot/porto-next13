@@ -5,6 +5,8 @@ import { getAllFilesFrontmatter } from "@/lib/mdx";
 import React from "react";
 import type { Metadata } from "next";
 import { Alpian } from "../../shared/meta/alpian";
+import BlogSection from "@/app/components/BlogSection";
+import Container from "@/app/components/Container";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -35,35 +37,18 @@ export const metadata: Metadata = {
 export default async function Blog({ params: { lng } }) {
   const blogs = await getAllFilesFrontmatter("blog", lng);
   return (
-    <main>
-      <section>
-        <div className="layout py-12">
-          <h1 className="text-3xl md:text-5xl" data-fade="0">
-            <Accent>Blog </Accent>
-          </h1>
-          <p className="mt-2 text-gray-600 dark:text-gray-300" data-fade="1">
-            Tutorials about front-end development.
-          </p>
-
-          <ul
-            className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3"
-            data-fade="5"
-          >
-            {blogs.length > 0 ? (
-              blogs.map((post) => (
-                <BlogCard
-                  key={post.slug}
-                  post={post}
-                  // checkTagged={checkTagged}
-                />
-              ))
-            ) : (
-              <ContentPlaceholder />
-            )}
-          </ul>
+    <Container className="py-24">
+      <div className="flex max-w-4xl flex-col items-start justify-center animate-in slide-in-from-left duration-500">
+        <h1 className="text-3xl md:text-5xl" data-fade="0">
+          <Accent>Blog </Accent>
+        </h1>
+        <p className="mt-2 text-gray-600 dark:text-gray-300" data-fade="1">
+          Tutorials about front-end development.
+        </p>
+        <div className="mt-10 mb-24 max-w-3xl animate-in slide-in-from-right duration-500">
+          <BlogSection posts={blogs} />
         </div>
-      </section>
-    </main>
+      </div>
+    </Container>
   );
 }
-

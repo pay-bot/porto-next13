@@ -5,6 +5,8 @@ import { getAllFilesFrontmatter } from "@/lib/mdx";
 import React from "react";
 import type { Metadata } from "next";
 import { Alpian } from "../../shared/meta/alpian";
+import Container from "@/app/components/Container";
+import ProjectSection from "@/app/components/ProjectSection";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -14,7 +16,8 @@ export const metadata: Metadata = {
     url: "https://www.fahrialpiansyah.my.id/project",
     siteName: Alpian.name,
     title: "Projects",
-    description: "Showcase of my projects on front-end development that I'm proud of.",
+    description:
+      "Showcase of my projects on front-end development that I'm proud of.",
     images: [
       {
         url: "/api/og?title=Projects",
@@ -26,7 +29,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: Alpian.name,
-    description: "Showcase of my projects on front-end development that I'm proud of.",
+    description:
+      "Showcase of my projects on front-end development that I'm proud of.",
     creator: `@${Alpian.name.toLowerCase()}`,
     images: ["/api/og?title=Projects"],
   },
@@ -35,36 +39,18 @@ export const metadata: Metadata = {
 export default async function Project({ params: { lng } }) {
   const projects = await getAllFilesFrontmatter("projects", lng);
   return (
-    <main>
-      <section>
-        <div className="layout py-12">
-          <h1 className="text-3xl md:text-5xl" data-fade="0">
-            <Accent>Project </Accent>
-          </h1>
-          <p className="mt-2 text-gray-600 dark:text-gray-300" data-fade="1">
-            Showcase of my projects on front-end development that I'm proud of.
-          </p>
-
-          <ul
-            className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3"
-            data-fade="5"
-          >
-            {projects.length > 0 ? (
-              projects.map((project) => (
-                <ProjectCard
-                  key={project.slug}
-                  project={project}
-                  // checkTagged={checkTagged}
-                />
-              ))
-            ) : (
-              <ContentPlaceholder />
-            )}
-          </ul>
+    <Container className="py-24">
+      <div className="flex max-w-4xl flex-col items-start justify-center animate-in slide-in-from-left duration-500">
+        <h1 className="text-3xl md:text-5xl" data-fade="0">
+          <Accent>Project</Accent>
+        </h1>
+        <p className="mt-2 text-gray-600 dark:text-gray-300" data-fade="1">
+          Showcase of my projects on front-end development that I'm proud of.
+        </p>
+        <div className="mt-10 mb-24 max-w-3xl animate-in slide-in-from-right duration-500">
+          <ProjectSection projects={projects} />
         </div>
-      </section>
-    </main>
+      </div>
+    </Container>
   );
 }
-
-
