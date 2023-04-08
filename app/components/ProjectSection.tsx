@@ -19,7 +19,7 @@ export default function ProjectSection({ projects }) {
                 className="group w-[330px] flex-none rounded-md border border-gray-300 p-4"
               >
                 <KommyLink
-                  href={`/blog/${p.slug}`}
+                  href={`/project/${p.slug}`}
                   className="group flex flex-col"
                 >
                   <div className="flex h-[9rem] flex-col items-start justify-between ">
