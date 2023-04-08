@@ -7,6 +7,7 @@ import CloudinaryImg from "../../../components/images/CloudinaryImg";
 import CustomLink from "@/app/components/links/CustomLink";
 import { HiLink } from "react-icons/hi";
 import ProjectHeader from "@/app/components/ProjectHeader";
+import Container from "@/app/components/Container";
 
 type ProjectPageProps = {
   params: {
@@ -57,8 +58,8 @@ export default async function project({
               </p>
             )}
 
-            <section className="lg:grid lg:grid-cols-[auto,250px] lg:gap-8">
-              <article className="mdx projects prose mx-auto w-full transition-colors dark:prose-invert max-w-none">
+            <Container className="flex flex-col items-center justify-start lg:flex-row lg:items-start lg:justify-between px-0">
+              <article className=" prose mx-auto mt-4 w-full transition-colors dark:prose-invert !max-w-none">
                 {project?.content}
               </article>
 
@@ -67,7 +68,7 @@ export default async function project({
                   <TableOfContents source={project.source} slug={projectSlug} />
                 </div>
               </aside>
-            </section>
+            </Container>
 
             <div className="mt-8 flex flex-col items-start gap-4 ">
               <CustomLink href="/project">← Back to projects</CustomLink>
@@ -94,4 +95,3 @@ export async function generateStaticParams() {
     lng: locale,
   }));
 }
-

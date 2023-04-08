@@ -16,9 +16,9 @@ export default function LanguageSwitcher({ lang }) {
 
   const redirectedPathName = (locale: string) => {
     if (!pathname) return "/";
-    if (pathname.includes("en") || pathname.includes("id")) {
+    if (pathname.includes("id")) {
       segments[1] = locale;
-    } else segments[0] = locale;
+    } else segments[1] = locale;
     return segments.join("/");
   };
 

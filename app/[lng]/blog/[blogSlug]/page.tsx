@@ -11,6 +11,7 @@ import CustomLink from "@/app/components/links/CustomLink";
 // import { BlogHeader } from "@/app/components";
 import { formatDate } from "@/utils";
 import BlogHeader from "../../../components/BlogHeader";
+import Container from "@/app/components/Container";
 
 type PostPageProps = {
   params: {
@@ -120,8 +121,8 @@ export default async function blog({
               />
 
               <hr className="dark:border-gray-600" />
-              <section className="lg:grid lg:grid-cols-[auto,250px] lg:gap-8">
-                <article className=" prose mx-auto mt-4 w-full transition-colors dark:prose-invert max-w-none">
+              <Container className="flex flex-col items-center justify-start lg:flex-row lg:items-start lg:justify-between px-0">
+                <article className=" prose mx-auto mt-4 w-full transition-colors dark:prose-invert !max-w-none">
                   {post?.content}
                 </article>
                 <aside className="py-4">
@@ -129,7 +130,7 @@ export default async function blog({
                     <TableOfContents source={post.source} slug={blogSlug} />
                   </div>
                 </aside>
-              </section>
+              </Container>
               <div className="mt-8 flex flex-col items-start gap-4 ">
                 <CustomLink href="/blog">← Back to blog</CustomLink>
               </div>
@@ -160,4 +161,3 @@ export async function generateStaticParams() {
     lng: locale,
   }));
 }
-

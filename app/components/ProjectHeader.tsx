@@ -35,7 +35,7 @@ export default function ProjectHeader({
   liveUrl,
 }: IProjectHeader) {
   return (
-    <Container className="mt-32 mb-14">
+    <Container className="mt-32 mb-14 px-0">
       <div className="animate-in slide-in-from-left duration-500">
         <div className="mt-2 space-x-2 text-base italic tracking-wide">
           <span> Published: {date}</span>
