@@ -62,12 +62,7 @@ export default async function project({
               <article className=" prose mx-auto mt-4 w-full transition-colors dark:prose-invert !max-w-none">
                 {project?.content}
               </article>
-
-              <aside className="py-4">
-                <div className="sticky top-36">
-                  <TableOfContents source={project.source} slug={projectSlug} />
-                </div>
-              </aside>
+              <TableOfContents source={project.source} slug={projectSlug} />
             </Container>
 
             <div className="mt-8 flex flex-col items-start gap-4 ">

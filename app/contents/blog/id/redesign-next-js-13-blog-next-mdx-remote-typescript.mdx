@@ -1,5 +1,5 @@
 ---
-title: "My 2023 Blog Redesign: Next.js 13, TypeScript, & Contentlayer"
+title: "My 2023 Blog Redesign: Next.js 13, TypeScript, & Next MDX Remote"
 description: "I redesign my blog about once a year to update it with a new coat of paint. Check out some of the ways I use Next.js 13!"
 publishedAt: "2022-12-31"
 banner: "Blogs/Reac-Query_pqr1cr"
@@ -24,9 +24,9 @@ The release of [Next.js 13](https://nextjs.org/blog/next-13) has introduced new 
 
 I am also utilizing `@next/font` and `@vercel/analytics` to make use of font optimization and [Vercel's new analytics acquisition](https://vercel.com/blog/vercel-acquires-splitbee).
 
-## Contentlayer
+## Next MDX Remote
 
-I am still using Contentlayer to compile my Markdown files. Some of the reasons you might love Contentlayer include:
+Next-mdx-remote is a powerful tool that allows developers to use MDX files in their Next.js projects. MDX files are a combination of Markdown and JSX, which allows developers to easily create rich, interactive content. Here are some important benefits of using next-mdx-remote:
 
 - Easily import your content as data
 - Use JS/TS — no new query language to learn
@@ -34,16 +34,9 @@ I am still using Contentlayer to compile my Markdown files. Some of the reasons 
 - Built-in and configurable content validations
 - Detailed error messages
 - Fast build and page performance
+- Improved SEO
 
-The first tool I used that also follows the concept of structured content, or thinking of content as data, was [Sanity.io](https://www.sanity.io/structured-content), which I enjoy using to build web platforms for clients. Contentlayer is perfect for projects that need scalable markdown content but don't need a robust CMS. While it is in beta, I suggest you [try it out on your next project](https://www.contentlayer.dev/blog/beta).
-
-## A Fresh Coat of paint
-
-Last year, I was all about pastels. Pink has been my favorite color for over 20 years now, so that wasn't going to change. But as far as some of the other pastels colors I used, they are gone.
-
-I still use pink but with a soft gradient on my website layout. My new design includes micro-animations to provide a modern web experience but is still quite performant as far as Google is concerned.
-
-While I have dropped my large, all-caps headings, I still feel my website represents a modern and minimal design.
+The first tool I used that also follows the concept of structured content, or thinking of content as data, was [Sanity.io](https://www.sanity.io/structured-content), which I enjoy using to build web platforms for clients. Next MDX Remote is perfect for projects that need scalable markdown content but don't need a robust CMS. While it is in beta, I suggest you [try it out on your next project](https://www.npmjs.com/package/next-mdx-remote).
 
 ## Updating MDX Code Blocks
 
@@ -109,4 +102,3 @@ export default function Skeleton({ className, ...props }: ISkeleton) {
 ## Summary
 
 As I go into 2023, I am still using the same web technologies I was building with last year. I look forward to further expanding my design and React development knowledge this year.
-

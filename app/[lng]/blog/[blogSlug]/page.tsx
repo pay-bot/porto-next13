@@ -122,14 +122,10 @@ export default async function blog({
 
               <hr className="dark:border-gray-600" />
               <Container className="flex flex-col items-center justify-start lg:flex-row lg:items-start lg:justify-between px-0">
-                <article className=" prose mx-auto mt-4 w-full transition-colors dark:prose-invert !max-w-none">
+                <article className=" prose mx-auto mt-4 w-full transition-colors dark:prose-invert !max-w-none ">
                   {post?.content}
                 </article>
-                <aside className="py-4">
-                  <div className="sticky top-36">
-                    <TableOfContents source={post.source} slug={blogSlug} />
-                  </div>
-                </aside>
+                <TableOfContents source={post.source} slug={blogSlug} />
               </Container>
               <div className="mt-8 flex flex-col items-start gap-4 ">
                 <CustomLink href="/blog">← Back to blog</CustomLink>

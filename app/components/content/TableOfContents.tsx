@@ -91,7 +91,7 @@ const TableOfContents = ({ source }: TOCProps) => {
   useIntersectionObserver(setActiveId);
 
   return (
-    <div className="mt-4 mb-0 cursor-pointer lg:sticky lg:top-20 lg:border-b-2 lg:border-dark">
+    <div className="mt-4 mb-0 cursor-pointer lg:sticky lg:top-20 lg:border-b-2 lg:border-dark ml-8">
       <Disclosure
         as="div"
         className="flex flex-col items-start justify-center"
