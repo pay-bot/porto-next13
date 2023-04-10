@@ -45,9 +45,9 @@ export default async function Project({ params: { lng } }) {
         <p className="mt-2 text-gray-600 dark:text-gray-300" data-fade="1">
           Showcase of my projects on front-end development
         </p>
-        <div className="mt-10 mb-24 max-w-3xl animate-in slide-in-from-right duration-500">
-          <ProjectSection projects={projects} />
-        </div>
+      </div>
+      <div className="mt-10 mb-24 animate-in slide-in-from-right duration-500">
+        <ProjectSection projects={projects} />
       </div>
     </Container>
   );

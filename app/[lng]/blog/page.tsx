@@ -45,9 +45,9 @@ export default async function Blog({ params: { lng } }) {
         <p className="mt-2 text-gray-600 dark:text-gray-300" data-fade="1">
           Tutorials about front-end development.
         </p>
-        <div className="mt-10 mb-24 max-w-3xl animate-in slide-in-from-right duration-500">
-          <BlogSection posts={blogs} />
-        </div>
+      </div>
+      <div className="mt-10 mb-24 animate-in slide-in-from-right duration-500">
+        <BlogSection posts={blogs} />
       </div>
     </Container>
   );
