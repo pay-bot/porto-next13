@@ -10,7 +10,7 @@ export const Alpian = {
     github: "https://github.com/pay-bot",
     linkedin:
       "https://www.linkedin.com/in/%E5%8F%88%E5%98%89-%E4%BF%9E-889664230",
-    instagram: "https://www.instagram.com/alpian_1104",
+    instagram: "https://www.instagram.com/alpian_",
     youtube_playlist:
       "https://www.youtube.com/playlist?list=PL7XkMe5ddX9Napk5747U6SIOAqWJBsqVM",
     google_photos: "https://photos.app.goo.gl/J1FobfgynJKW84Dm6",

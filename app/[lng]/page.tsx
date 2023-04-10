@@ -16,7 +16,10 @@ import ProjectSection from "../components/ProjectSection";
 
 export default async function Home({ params: { lng } }) {
   const blogs = await getAllFilesFrontmatter("blog", lng);
-  const featuredPosts = await getFeatured(blogs, ["react-query"]);
+  const featuredPosts = await getFeatured(blogs, [
+    "redesign-next-js-13-blog-next-mdx-remote-typescript",
+    "react-query",
+  ]);
 
   const projects = await getAllFilesFrontmatter("projects", lng);
 

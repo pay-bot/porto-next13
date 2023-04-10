@@ -38,7 +38,7 @@ export const generateMetadata = async ({
       openGraph: {
         type: "article",
         locale: "zh_TW",
-        url: `https://alpian1104.dev/posts/${params.slug}`,
+        url: `https://alpian.dev/posts/${params.slug}`,
         siteName: "Alpian",
         title: frontmatter?.title,
         description: frontmatter?.excerpt,
@@ -56,7 +56,7 @@ export const generateMetadata = async ({
         card: "summary_large_image",
         title: "Alpian",
         description: frontmatter?.excerpt,
-        creator: "@alpian1104",
+        creator: "@alpian",
         images: [
           `/api/og?title=${encodeURIComponent(frontmatter?.title ?? "")}`,
         ],
@@ -86,7 +86,7 @@ export default async function blog({
       keywords: post?.tags?.join(","),
       author: {
         "@type": "Person",
-        name: "Alpian1104",
+        name: "Alpian",
       },
     };
 
