@@ -54,7 +54,7 @@ export default async function Home({ params: { lng } }) {
 
         <ProjectSection projects={featuredProjects} />
 
-        <ButtonLink className="mt-4" href="/projects">
+        <ButtonLink className="mt-4" href="/project">
           See more project
         </ButtonLink>
       </section>
