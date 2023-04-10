@@ -1,6 +1,4 @@
 import Accent from "@/app/components/Accent";
-import ContentPlaceholder from "@/app/components/content/ContentPlaceholder";
-import ProjectCard from "@/app/components/project/ProjectCard";
 import { getAllFilesFrontmatter } from "@/lib/mdx";
 import React from "react";
 import type { Metadata } from "next";

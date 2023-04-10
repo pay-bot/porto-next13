@@ -1,9 +1,9 @@
 import { getFileBySlug, getFiles } from "@/lib/mdx";
 import React from "react";
 import { languages } from "@/app/i18n/settings";
-import TableOfContents from "../../../components/content/TableOfContents";
+import TableOfContents from "../../../components/TableOfContents";
 
-import CustomLink from "@/app/components/links/CustomLink";
+import CustomLink from "@/app/components/ui/links/CustomLink";
 import { HiLink } from "react-icons/hi";
 import ProjectHeader from "@/app/components/ProjectHeader";
 import Container from "@/app/components/Container";

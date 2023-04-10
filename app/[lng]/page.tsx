@@ -8,7 +8,7 @@ import Accent from "../components/Accent";
 import type { Metadata } from "next";
 import { IoNewspaperSharp } from "react-icons/io5";
 import { SiGithub } from "@icons-pack/react-simple-icons";
-import ButtonLink from "../components/links/ButtonLink";
+import ButtonLink from "../components/ui/links/ButtonLink";
 import Container from "../components/Container";
 import H1Heading from "../components/H1Heading";
 import BlogSection from "../components/BlogSection";

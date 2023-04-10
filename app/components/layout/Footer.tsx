@@ -6,7 +6,7 @@ import { FiMail } from "react-icons/fi";
 import { SiGithub } from "react-icons/si";
 import { Tooltip as TooltipTippy } from "react-tippy";
 import Accent from "../Accent";
-import UnstyledLink from "../links/UnstyledLink";
+import UnstyledLink from "../ui//links/UnstyledLink";
 import Tooltip from "../Tooltip";
 
 export default function Footer() {

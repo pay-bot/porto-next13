@@ -1,4 +1,4 @@
-import "../styles/dracula.css";
+// import "../styles/dracula.css";
 import "../styles/globals.css";
 import "../styles/mdx.css";
 import localFont from "next/font/local";

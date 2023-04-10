@@ -4,7 +4,7 @@ import MyLink from "./MyLink";
 import Container from "./Container";
 import buildUrl from "cloudinary-build-url";
 import { HiLink } from "react-icons/hi";
-import CustomLink from "./links/CustomLink";
+import CustomLink from "./ui/links/CustomLink";
 // import { MyLink, Container, MyImage } from "components";
 interface IProjectHeader {
   title: string;

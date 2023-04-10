@@ -16,7 +16,7 @@ import * as React from "react";
 //   SiTailwindcss,
 // } from "react-icons/si";
 
-import CustomLink from "./links/CustomLink";
+import CustomLink from "./ui/links/CustomLink";
 import Tooltip from "./Tooltip";
 
 export default function TechStack() {
