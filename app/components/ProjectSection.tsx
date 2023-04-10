@@ -1,7 +1,7 @@
 import { formatDate, shimmer, toBase64 } from "utils";
 import Container from "./Container";
-import KommyLink from "./a";
-import KommyImage from "./image";
+import MyLink from "./MyLink";
+import MyImage from "./MyImage";
 import TechIcons, { TechListType } from "./TechIcons";
 
 export default function ProjectSection({ projects }) {
@@ -18,7 +18,7 @@ export default function ProjectSection({ projects }) {
                 key={p.slug}
                 className="group w-[330px] flex-none rounded-md border border-gray-300 p-4"
               >
-                <KommyLink
+                <MyLink
                   href={`/project/${p.slug}`}
                   className="group flex flex-col"
                 >
@@ -40,7 +40,7 @@ export default function ProjectSection({ projects }) {
                     </div>
                   </div>
                   <div className="h-[200px] w-full overflow-clip rounded-t-md">
-                    <KommyImage
+                    <MyImage
                       src={p.banner}
                       alt={p.title}
                       width={330}
@@ -56,7 +56,7 @@ export default function ProjectSection({ projects }) {
                   <p className="animated-underline mt-2 inline-block font-medium ">
                     See more →
                   </p>
-                </KommyLink>
+                </MyLink>
               </div>
             ))}
           </>

@@ -1,9 +1,9 @@
 import { shimmer, toBase64 } from "utils";
-import KommyImage from "./image";
-import KommyLink from "./a";
+import MyImage from "./MyImage";
+import MyLink from "./MyLink";
 import Container from "./Container";
 import buildUrl from "cloudinary-build-url";
-// import { KommyLink, Container, KommyImage } from "components";
+// import { MyLink, Container, MyImage } from "components";
 interface IBlogHeader {
   title: string;
   date: string;
@@ -58,7 +58,7 @@ export default function BlogHeader({
           <div className="font-medium">Written by: {authorName}</div>
         </div>
       </div>
-      <KommyImage
+      <MyImage
         src={imgSrc}
         width={1200}
         height={630}

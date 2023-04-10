@@ -1,7 +1,7 @@
 import { formatDate, shimmer, toBase64 } from "utils";
 import Container from "./Container";
-import KommyLink from "./a";
-import KommyImage from "./image";
+import MyLink from "./MyLink";
+import MyImage from "./MyImage";
 
 export default function BlogSection({ posts }) {
   return (
@@ -17,12 +17,12 @@ export default function BlogSection({ posts }) {
                 key={p.slug}
                 className="group w-[330px] flex-none rounded-md border border-gray-300"
               >
-                <KommyLink
+                <MyLink
                   href={`/blog/${p.slug}`}
                   className="group flex flex-col"
                 >
                   <div className="h-[200px] w-full overflow-clip rounded-t-md">
-                    <KommyImage
+                    <MyImage
                       src={p.banner}
                       alt={p.title}
                       width={330}
@@ -63,7 +63,7 @@ export default function BlogSection({ posts }) {
                       ) : null}
                     </div>
                   </div>
-                </KommyLink>
+                </MyLink>
               </div>
             ))}
           </>

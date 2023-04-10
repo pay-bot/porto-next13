@@ -2,7 +2,7 @@ import { clsxm } from "../../utils";
 import Link, { LinkProps } from "next/link";
 import React from "react";
 
-export type TKommyLink = {
+export type TMyLink = {
   href: string;
   showIcon?: boolean;
   dottedLine?: boolean;
@@ -11,7 +11,7 @@ export type TKommyLink = {
 } & Omit<LinkProps, "href"> &
   React.HTMLAttributes<HTMLAnchorElement>;
 
-export default function KommyLink({
+export default function MyLink({
   showIcon = false,
   dottedLine = false,
   animatedUnderline = false,
@@ -19,7 +19,7 @@ export default function KommyLink({
   children,
   href,
   ...props
-}: TKommyLink) {
+}: TMyLink) {
   const isInternalLink =
     (href && href.startsWith("/")) || (href && href.startsWith("#"));
   if (isInternalLink) {

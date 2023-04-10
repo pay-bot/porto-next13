@@ -4,13 +4,13 @@ import buildUrl from "cloudinary-build-url";
 import { clsxm } from "../../utils";
 import Image, { ImageProps } from "next/image";
 
-export interface IKommyImage extends ImageProps {
+export interface IMyImage extends ImageProps {
   blogImage?: boolean;
   caption?: string;
   captionClassName?: string;
 }
 
-export default function KommyImage({
+export default function MyImage({
   src,
   alt,
   className,
@@ -21,7 +21,7 @@ export default function KommyImage({
   captionClassName,
   aspect,
   ...rest
-}: IKommyImage) {
+}: IMyImage) {
   const url = buildUrl(src, {
     cloud: {
       cloudName: "dkrci6hyh",

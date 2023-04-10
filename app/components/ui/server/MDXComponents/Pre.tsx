@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { clsxm } from "../../utils";
+import { clsxm } from "../../../../../utils";
 
 interface IPre extends React.HTMLAttributes<HTMLPreElement> {
   className?: string;

@@ -1,9 +1,9 @@
 import { MDXRemote as MDXR, type MDXRemoteProps } from "next-mdx-remote/rsc";
 import TechIcons from "@/app/components/TechIcons";
-import CodeTitle from "../MDXComponents/code-title";
 import { clsxm } from "@/utils";
-import Pre from "@/app/components/pre";
-import Callout from "@/app/components/Callout";
+import Pre from "@/app/components/ui/server/MDXComponents/Pre";
+import Callout from "@/app/components/ui/server/MDXComponents/Callout";
+import CodeTitle from "@/app/components/ui/server/MDXComponents/CodeTitle";
 
 const Components = {
   TechIcons: (props) => <TechIcons {...props} />,
@@ -31,5 +31,3 @@ const MDXRemote = (props: MDXRemoteProps) => (
 
 export default MDXRemote;
 export { Components };
-
-

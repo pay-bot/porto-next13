@@ -2,7 +2,6 @@ import { getFileBySlug, getFiles } from "@/lib/mdx";
 import React from "react";
 import { languages } from "@/app/i18n/settings";
 import TableOfContents from "../../../components/content/TableOfContents";
-import CloudinaryImg from "../../../components/images/CloudinaryImg";
 
 import CustomLink from "@/app/components/links/CustomLink";
 import { HiLink } from "react-icons/hi";
