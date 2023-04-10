@@ -23,7 +23,7 @@ export default async function Home({ params: { lng } }) {
 
   const projects = await getAllFilesFrontmatter("projects", lng);
 
-  const featuredProjects = getFeatured(projects, ["bzpublish", "tbs"]);
+  const featuredProjects = getFeatured(projects, ["bzpublish", "tbs", "kns"]);
 
   if (languages.indexOf(lng) < 0) lng = fallbackLng;
   const { t } = await useTranslation(lng, "common");

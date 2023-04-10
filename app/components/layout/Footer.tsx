@@ -13,25 +13,12 @@ export default function Footer() {
   return (
     <footer className="mt-4 pb-2">
       <main className="layout flex flex-col items-center border-t pt-6 dark:border-gray-600">
-        {/* <FooterLinks /> */}
-
         <p className="mt-12 font-medium text-gray-600 dark:text-gray-300">
           Reach me out
         </p>
         <SocialLinks />
-
         <p className="mt-8 text-sm text-gray-600 dark:text-gray-300">
           © Fahri Alpiansyah {new Date().getFullYear()}
-          {/* {feedbackFlag && (
-            <>
-              {' • '}
-              <FeedbackFish projectId='59a0c0e0d549a7'>
-                <button className='rounded-sm hover:text-gray-800 focus:outline-none focus-visible:ring focus-visible:ring-primary-300 dark:hover:text-gray-100'>
-                  Got any feedback?
-                </button>
-              </FeedbackFish>
-            </>
-          )} */}
         </p>
       </main>
     </footer>
@@ -97,64 +84,6 @@ function SocialLinks() {
     </div>
   );
 }
-
-const footerLinks = [
-  {
-    href: "https://github.com/alfian/fahrialpiansyah.my.id",
-    text: "Source Code",
-    tooltip: (
-      <>
-        This website is <strong>open source</strong>!
-      </>
-    ),
-  },
-  {
-    href: "/design",
-    text: "Design",
-    tooltip: "fahrialpiansyah.my.id color palette",
-  },
-  {
-    href: "https://alfian.link/docs",
-    text: "Docs",
-    tooltip: "Personal documentation about my best practices on development",
-  },
-  {
-    href: "https://alfian.link/booknotes",
-    text: "Book Notes",
-    tooltip: "Note collection of books that I read",
-  },
-  {
-    href: "https://alfian.link/starters",
-    text: "Starter Templates",
-    tooltip: "Starter that I build and use throughout my projects",
-  },
-  {
-    href: "https://alfian.link/um",
-    text: "Analytics",
-    tooltip: "fahrialpiansyah.my.id views and visitors analytics",
-  },
-  {
-    href: "/statistics",
-    text: "Statistics",
-    tooltip: "Blog, Projects, and Library Statistics",
-  },
-  {
-    href: "/guestbook",
-    text: "Guestbook",
-    tooltip:
-      "Leave whatever you like to say—message, appreciation, suggestions",
-  },
-  {
-    href: "/subscribe",
-    text: "Subscribe",
-    tooltip: "Get an email whenever I post, no spam",
-  },
-  {
-    href: "https://fahrialpiansyah.my.id/rss.xml",
-    text: "RSS",
-    tooltip: "Add fahrialpiansyah.my.id blog to your feeds",
-  },
-];
 
 const socials = [
   {
