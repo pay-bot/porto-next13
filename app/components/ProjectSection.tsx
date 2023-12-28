@@ -1,4 +1,4 @@
-import { formatDate, shimmer, toBase64 } from "utils";
+import { formatDate, shimmer, toBase64 } from "@/utils";
 import Container from "./Container";
 import MyLink from "./MyLink";
 import MyImage from "./MyImage";

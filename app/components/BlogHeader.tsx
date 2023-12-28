@@ -1,4 +1,4 @@
-import { shimmer, toBase64 } from "utils";
+import { shimmer, toBase64 } from "@/utils";
 import MyImage from "./MyImage";
 import MyLink from "./MyLink";
 import Container from "./Container";
