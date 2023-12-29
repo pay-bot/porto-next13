@@ -60,7 +60,7 @@ export default function ProjectHeader({
         width={1200}
         height={630}
         alt={imgSrc}
-        className="my-8 h-[280px] w-full rounded-md border border-gray-300 object-cover object-center animate-in fade-in duration-500 md:h-[500px]"
+        className="my-8 h-full w-full rounded-md border border-gray-300 object-cover object-center animate-in fade-in duration-500 "
         placeholder="blur"
         blurDataURL={`data:image/svg+xml;base64,${toBase64(
           shimmer(1200, 630)
