@@ -50,7 +50,7 @@ export default function ProjectSection({ projects }) {
                       priority
                     />
                   </div>
-                  <p className="animated-underline mt-2 inline-block font-medium ">
+                  <p className="animated-underline mt-2 inline-block font-medium w-fit">
                     See more →
                   </p>
                 </MyLink>

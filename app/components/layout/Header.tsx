@@ -34,7 +34,7 @@ export default function Header({ large = false, lang }: HeaderProps) {
             {links.map(({ href, label }) => (
               <li key={`${href}${label}`}>
                 <Link
-                  href={segments[1] === "id" ? `/id/${href}` : href}
+                  href={segments[1] === "id" ? `/id${href}` : href}
                   className={clsxm(
                     "rounded-sm py-2 transition-colors",
                     "font-medium text-black dark:text-white",
@@ -73,7 +73,7 @@ export default function Header({ large = false, lang }: HeaderProps) {
 const links = [
   { href: "/", label: "Home" },
   // { href: "blog", label: "Blog" },
-  { href: "project", label: "Project" },
+  { href: "/project", label: "Project" },
   // { href: '/library', label: 'Library' },
-  { href: "about", label: "About" },
+  { href: "/about", label: "About" },
 ];

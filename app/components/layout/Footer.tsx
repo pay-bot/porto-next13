@@ -3,7 +3,7 @@
 import * as React from "react";
 import CopyToClipboard from "react-copy-to-clipboard";
 import { FiMail } from "react-icons/fi";
-import { SiGithub } from "react-icons/si";
+import { SiGithub, SiLinkedin } from "react-icons/si";
 import { Tooltip as TooltipTippy } from "react-tippy";
 import Accent from "../Accent";
 import UnstyledLink from "../ui//links/UnstyledLink";
@@ -96,5 +96,14 @@ const socials = [
       </>
     ),
   },
+  {
+    href: "https://www.linkedin.com/in/fahri-alpiansyah-765ab7211/",
+    icon: SiLinkedin,
+    id: "Linkedin",
+    text: (
+      <>
+        Find me on <Accent className="font-medium">Linkedin</Accent>
+      </>
+    ),
+  },
 ];
-
