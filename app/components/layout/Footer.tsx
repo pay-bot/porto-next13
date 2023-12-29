@@ -18,7 +18,7 @@ export default function Footer() {
         </p>
         <SocialLinks />
         <p className="mt-8 text-sm text-gray-600 dark:text-gray-300">
-          © Fahri Alpiansyah {new Date().getFullYear()}
+          © {new Date().getFullYear()} Emang Dia Orang Technology
         </p>
       </main>
     </footer>

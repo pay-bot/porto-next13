@@ -16,9 +16,9 @@ interface AboutPageProps {
 }
 
 const info = [
-  { text: "Years experience", count: "02" },
-  { text: "Completed Projects", count: "04" },
-  { text: "Satisfied Clients", count: "04" },
+  { text: "Years experience", count: "03" },
+  { text: "Completed Projects", count: "08" },
+  { text: "Satisfied Clients", count: "06" },
 ];
 
 export const metadata: Metadata = {
