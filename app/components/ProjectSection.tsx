@@ -7,16 +7,13 @@ import TechIcons, { TechListType } from "./TechIcons";
 export default function ProjectSection({ projects }) {
   return (
     <Container as="section" className="animate-in fade-in duration-500 px-0">
-      <span className="font-mono text-sm font-semibold lowercase text-gray-500">
-        scroll &rarr;
-      </span>
-      <div className="flex flex-row items-start justify-start space-x-6 overflow-x-auto pb-8 ">
+      <div className="grid sm:grid-cols-2 grid-cols-1 items-start justify-start gap-6 overflow-x-auto pb-8 ">
         {projects?.length ? (
           <>
             {projects.map((p) => (
               <div
                 key={p.slug}
-                className="group w-[330px] flex-none rounded-md border border-gray-300 p-4"
+                className="group w-full flex-none rounded-md border border-gray-300 p-4"
               >
                 <MyLink
                   href={`/project/${p.slug}`}
@@ -39,7 +36,7 @@ export default function ProjectSection({ projects }) {
                       ) : null}
                     </div>
                   </div>
-                  <div className="h-[200px] w-full overflow-clip rounded-t-md">
+                  <div className="h-full w-full overflow-clip rounded-t-md">
                     <MyImage
                       src={p.banner}
                       alt={p.title}

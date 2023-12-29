@@ -23,7 +23,12 @@ export default async function Home({ params: { lng } }) {
 
   const projects = await getAllFilesFrontmatter("projects", lng);
 
-  const featuredProjects = getFeatured(projects, ["bzpublish", "tbs", "kns"]);
+  const featuredProjects = getFeatured(projects, [
+    "bzpublish",
+    "tbs",
+    "supersoft",
+    "pangeran-pekanbaru",
+  ]);
 
   if (languages.indexOf(lng) < 0) lng = fallbackLng;
   const { t } = await useTranslation(lng, "common");
@@ -35,7 +40,7 @@ export default async function Home({ params: { lng } }) {
           {t("hero.p1")}
         </H1Heading>
       </div>
-      <section className="">
+      {/* <section className="">
         <h2 className="text-2xl md:text-4xl" id="blog">
           <Accent>Featured Posts</Accent>
         </h2>
@@ -43,7 +48,7 @@ export default async function Home({ params: { lng } }) {
         <ButtonLink className="mt-4" href="/blog">
           See more post
         </ButtonLink>
-      </section>
+      </section> */}
       <section className="mt-20 mb-6">
         <h2 className="text-2xl md:text-4xl" id="projects">
           <Accent>Featured Projects</Accent>

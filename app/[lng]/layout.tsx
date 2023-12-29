@@ -26,12 +26,10 @@ export const metadata: Metadata = {
   },
   description: Alpian.content,
   keywords: ["Typescript", "FullStack", "NextJS", "React", "NestJS", "Alpian"],
-  themeColor: "#2B2E4A",
-  colorScheme: "dark",
   creator: Alpian.name,
   openGraph: {
     type: "website",
-    locale: "zh_TW",
+    locale: "en",
     url: "https://alpian.dev",
     siteName: Alpian.name,
     title: Alpian.name,
@@ -99,4 +97,3 @@ export default function RootLayout({ children, params: { lng } }) {
     </html>
   );
 }
-
