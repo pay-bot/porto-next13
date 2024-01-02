@@ -36,8 +36,9 @@ export const metadata: Metadata = {
     title: Alpian.name,
     description: Alpian.content,
     images: [
-      "https://www.edotech.app/og.png",
-      "https://www.edotech.app/id/og.png",
+      "https://www.edotech.app/og.jpg",
+      "https://www.edotech.app/id/og.jpg",
+      "https://www.edotech.app/en/og.jpg",
     ],
   },
   robots: {
