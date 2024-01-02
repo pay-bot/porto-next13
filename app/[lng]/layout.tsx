@@ -20,6 +20,7 @@ const kaisei = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://edotech.app"),
   title: {
     default: `${Alpian.name} | ${Alpian.title}`,
     template: `%s | ${Alpian.name}`,
@@ -35,11 +36,8 @@ export const metadata: Metadata = {
     title: Alpian.name,
     description: Alpian.content,
     images: [
-      {
-        url: "/api/og",
-        width: 1200,
-        height: 630,
-      },
+      "https://www.edotech.app/og.png",
+      "https://www.edotech.app/id/og.png",
     ],
   },
   robots: {
@@ -65,7 +63,7 @@ export const metadata: Metadata = {
     title: Alpian.name,
     description: Alpian.content,
     creator: `@${Alpian.name.toLowerCase()}`,
-    images: ["/api/og"],
+    images: ["/favicon.ico"],
   },
   verification: {
     google: "google",
