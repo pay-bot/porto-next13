@@ -1,5 +1,5 @@
 module.exports = {
-  siteUrl: "https://www.fahrialpiansyah.my.id",
+  siteUrl: "https://www.edotech.app",
   exclude: ["/404"],
   generateRobotsTxt: true,
   robotsTxtOptions: {

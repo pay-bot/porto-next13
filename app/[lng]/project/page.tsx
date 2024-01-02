@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "article",
     locale: "en",
-    url: "https://www.fahrialpiansyah.my.id/project",
+    url: "https://www.edotech.app/project",
     siteName: Alpian.name,
     title: "Projects",
     description: "Showcase of my projects on front-end development",

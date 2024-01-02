@@ -4,11 +4,11 @@ import { openGraph } from "@/lib/helper";
 
 const defaultMeta = {
   title: "Fahri Alpiansyah",
-  siteName: "fahrialpiansyah.my.id",
+  siteName: "edotech.app",
   description:
     "An online portfolio and blog by Fahri Alpiansyah. Showcase of my projects, and some of my thoughts about website development.",
-  url: "https://fahrialpiansyah.my.id",
-  image: "https://fahrialpiansyah.my.id/favicon/large-og.jpg",
+  url: "https://edotech.app",
+  image: "https://edotech.app/favicon/large-og.jpg",
   type: "website",
   robots: "follow, index",
 };

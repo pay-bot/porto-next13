@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "profile",
     locale: "en",
-    url: "https://www.fahrialpiansyah.my.id/about",
+    url: "https://www.edotech.app/about",
     siteName: Alpian.name,
     title: "About",
     description: Alpian.content,

@@ -1,15 +1,15 @@
-import format from 'date-fns/format';
-import fs from 'fs';
+import format from "date-fns/format";
+import fs from "fs";
 
-import { getAllFilesFrontmatter } from '@/lib/mdx';
+import { getAllFilesFrontmatter } from "@/lib/mdx";
 
 export async function getRssXml(locale: string) {
-  const frontmatters = await getAllFilesFrontmatter('blog', locale);
+  const frontmatters = await getAllFilesFrontmatter("blog", locale);
 
-  const blogUrl = 'https://fahrialpiansyah.my.id/blog';
+  const blogUrl = "https://edotech.app/blog";
 
   const itemXml = frontmatters
-    .filter((fm) => !fm.slug.startsWith('id-'))
+    .filter((fm) => !fm.slug.startsWith("id-"))
     .map(({ slug, title, description, publishedAt, lastUpdated }) =>
       `
     <item>
@@ -19,7 +19,7 @@ export async function getRssXml(locale: string) {
       <guid>${blogUrl}/${slug}</guid>
       <pubDate>${format(
         new Date(lastUpdated ?? publishedAt),
-        'yyyy-MM-dd'
+        "yyyy-MM-dd"
       )}</pubDate>
     </item>
     `.trim()
@@ -33,7 +33,7 @@ export async function getRssXml(locale: string) {
         <description>The Fahri Alpiansyah Blog, Tutorials about front-end development.</description>
         <language>en</language>
         <ttl>40</ttl>
-        ${itemXml.join('\n')}
+        ${itemXml.join("\n")}
       </channel>
     </rss>
   `.trim();
@@ -45,5 +45,5 @@ function cdata(s: string) {
 
 export async function generateRss(locale: string) {
   const xml = await getRssXml(locale);
-  fs.writeFileSync('public/rss.xml', xml);
+  fs.writeFileSync("public/rss.xml", xml);
 }

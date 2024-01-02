@@ -7,7 +7,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://www.fahrialpiansyah.my.id
+Host: https://www.edotech.app
 
 # Sitemaps
-Sitemap: https://www.fahrialpiansyah.my.id/sitemap.xml
+Sitemap: https://www.edotech.app/sitemap.xml
