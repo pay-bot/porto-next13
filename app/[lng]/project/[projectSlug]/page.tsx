@@ -15,6 +15,26 @@ type ProjectPageProps = {
   };
 };
 
+export async function generateMetadata({
+  params: { lng, projectSlug },
+}: ProjectPageProps) {
+  const project = await getFileBySlug("projects", projectSlug as string, lng);
+
+  return {
+    title: `${project.frontmatter.title} | Edotech`,
+    description: project.frontmatter.description,
+    keywords: project.frontmatter.keywords,
+    openGraph: {
+      title: `${project.frontmatter.title} | Edotech`,
+      description: project.frontmatter.description,
+    },
+    twitter: {
+      title: `${project.frontmatter.title} | Edotech`,
+      description: project.frontmatter.description,
+    },
+  };
+}
+
 export default async function project({
   params: { lng, projectSlug },
 }: ProjectPageProps) {

@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     template: `%s | ${Alpian.name}`,
   },
   description: Alpian.content,
-  keywords: ["Typescript", "FullStack", "NextJS", "React", "NestJS", "Alpian"],
+  keywords: ["FullStack", "NextJS", "React", "Alpian"],
   creator: Alpian.name,
   openGraph: {
     type: "website",
